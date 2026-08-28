@@ -1,0 +1,21 @@
+{
+  "name": "stack-marquee",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.12.2",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "dev": "node scripts/dev-server.mjs",
+    "test": "node --test tests/**/*.test.mjs"
+  },
+  "devDependencies": {
+    "devicon": "2.17.0",
+    "simple-icons": "16.28.0",
+    "wrangler": "4.25.0"
+  }
+}

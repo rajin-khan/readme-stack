@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Create a scrolling tech stack for a GitHub profile README.">
+    <meta name="color-scheme" content="light dark">
+    <title>Stack Marquee</title>
+    <link rel="stylesheet" href="/styles.css?v=0.1.1">
+    <script type="module" src="/app.js?v=0.1.1"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#builder">Skip to builder</a>
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="Stack Marquee home">
+        <span class="wordmark-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Stack Marquee</span>
+      </a>
+      <a class="header-link" href="https://github.com/rajin-khan" rel="noreferrer">GitHub</a>
+    </header>
+
+    <main id="builder" class="builder-shell">
+      <section class="builder-panel" aria-labelledby="builder-title">
+        <div class="intro">
+          <p class="eyebrow">For GitHub profile READMEs</p>
+          <h1 id="builder-title">Stack Marquee</h1>
+          <p>Pick your tools, change the options, and copy the code.</p>
+        </div>
+
+        <div class="preset-row" aria-label="Stack presets">
+          <span>Presets</span>
+          <div id="preset-list" class="preset-list"></div>
+        </div>
+
+        <div class="tool-picker">
+          <label for="tool-search">Find a tool</label>
+          <div class="search-wrap">
+            <input id="tool-search" type="search" autocomplete="off" placeholder="React, Postgres, Figma...">
+            <span id="search-count" aria-live="polite"></span>
+          </div>
+          <div id="category-list" class="category-list" aria-label="Tool categories"></div>
+          <div id="catalog-grid" class="catalog-grid" aria-live="polite"></div>
+          <button id="show-more" class="text-button" type="button" hidden>Show more tools</button>
+        </div>
+      </section>
+
+      <section class="output-panel" aria-labelledby="preview-title">
+        <div class="preview-head">
+          <div>
+            <p class="section-label">Preview</p>
+            <h2 id="preview-title"><span id="selected-count">0</span> tools selected</h2>
+          </div>
+          <button id="reset-button" class="text-button" type="button">Reset</button>
+        </div>
+
+        <div class="preview-stage">
+          <img id="marquee-preview" alt="Tech stack preview" width="960" height="92">
+        </div>
+
+        <div id="selection-error" class="inline-error" role="alert" hidden></div>
+        <div id="selected-tools" class="selected-tools" aria-label="Selected tools"></div>
+        <div id="undo-bar" class="undo-bar" role="status" hidden>
+          <span id="undo-message"></span>
+          <button id="undo-button" type="button">Undo</button>
+        </div>
+
+        <details class="controls" open>
+          <summary>Options</summary>
+          <div class="control-grid">
+            <fieldset data-control="treatment">
+              <legend>Background</legend>
+              <div class="segmented">
+                <button type="button" data-value="dark">Dark</button>
+                <button type="button" data-value="light">Light</button>
+                <button type="button" data-value="transparent">Clear</button>
+              </div>
+            </fieldset>
+            <fieldset data-control="speed">
+              <legend>Speed</legend>
+              <div class="segmented">
+                <button type="button" data-value="slow">Slow</button>
+                <button type="button" data-value="normal">Normal</button>
+                <button type="button" data-value="fast">Fast</button>
+              </div>
+            </fieldset>
+            <fieldset data-control="direction">
+              <legend>Direction</legend>
+              <div class="segmented">
+                <button type="button" data-value="left">Left</button>
+                <button type="button" data-value="right">Right</button>
+              </div>
+            </fieldset>
+            <fieldset data-control="spacing">
+              <legend>Spacing</legend>
+              <div class="segmented">
+                <button type="button" data-value="compact">Compact</button>
+                <button type="button" data-value="comfortable">Open</button>
+              </div>
+            </fieldset>
+            <fieldset data-control="labels">
+              <legend>Names</legend>
+              <div class="segmented">
+                <button type="button" data-value="on">Shown</button>
+                <button type="button" data-value="off">Hidden</button>
+              </div>
+            </fieldset>
+            <fieldset data-control="motion">
+              <legend>Motion</legend>
+              <div class="segmented">
+                <button type="button" data-value="infinite">Loop</button>
+                <button type="button" data-value="once">Once</button>
+                <button type="button" data-value="static">Still</button>
+              </div>
+            </fieldset>
+            <fieldset data-control="size">
+              <legend>Tool size</legend>
+              <div class="segmented">
+                <button type="button" data-value="small">Small</button>
+                <button type="button" data-value="large">Large</button>
+              </div>
+            </fieldset>
+          </div>
+        </details>
+
+        <div class="export-block">
+          <div>
+            <p class="section-label">Embed</p>
+            <p id="export-note">The link opens the same setup here.</p>
+          </div>
+          <div class="export-actions">
+            <button id="copy-markdown" class="primary-button" type="button">Copy Markdown</button>
+            <button id="copy-html" class="secondary-button" type="button">Copy HTML</button>
+          </div>
+          <label class="code-label" for="embed-code">Code</label>
+          <textarea id="embed-code" rows="5" readonly spellcheck="false"></textarea>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>MIT licensed.</span>
+      <span>No account needed.</span>
+    </footer>
+  </body>
+</html>
