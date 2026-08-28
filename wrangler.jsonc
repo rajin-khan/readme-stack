@@ -3,6 +3,8 @@
   "name": "readme-stack",
   "main": "src/worker.js",
   "compatibility_date": "2026-08-29",
+  "workers_dev": true,
+  "preview_urls": true,
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",
@@ -10,6 +12,6 @@
     "run_worker_first": ["/v1/*"]
   },
   "observability": {
-    "enabled": true
+    "enabled": false
   }
 }
