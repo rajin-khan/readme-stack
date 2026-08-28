@@ -1,4 +1,4 @@
-const PRODUCTION_ORIGIN = "https://stack.rajinkhan.com";
+const PRODUCTION_ORIGIN = "https://readme-stack.rajin-khan2001.workers.dev";
 const DEFAULT_IDS = ["typescript", "react", "nextdotjs", "tailwindcss", "nodedotjs", "python", "fastapi", "postgresql", "supabase", "docker", "git", "github"];
 const LIMITS = { min: 2, max: 24, warning: 16 };
 const presets = {

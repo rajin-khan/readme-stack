@@ -32,7 +32,7 @@ Rajin handles only actions that require an external account, domain ownership, o
 - Confirm that `rajinkhan.com` can use Cloudflare DNS or provide another domain.
 - Create or select the public GitHub repository when asked.
 - Connect the repository to Cloudflare when local work is ready.
-- Add `stack.rajinkhan.com` as the production custom domain.
+- Decide later whether to move `rajinkhan.com` to Cloudflare DNS and add `stack.rajinkhan.com`.
 - Approve any Cloudflare permission prompt or account-level setting.
 - Put the final embed into the GitHub profile README after the public URL works.
 - Approve the public product name after the naming check.
@@ -45,9 +45,9 @@ Codex will provide exact click-by-click instructions for each item when it becom
 
 The Builder, renderer, tests, documentation, responsive checks, and local visual QA are complete.
 
-### Cloudflare gate
+### Cloudflare gate: complete
 
-Rajin connects the repository, confirms the production subdomain, and approves Cloudflare access. Codex then verifies the deployed headers, cache behavior, SVG output, and Builder.
+The repository deploys through Cloudflare Workers Builds. The public address is `https://readme-stack.rajin-khan2001.workers.dev`.
 
 ### GitHub compatibility gate
 
