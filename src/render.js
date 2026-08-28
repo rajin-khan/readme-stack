@@ -78,7 +78,7 @@ export function renderErrorSvg(message, status = 400) {
   const safe = xml(message);
   return {
     status,
-    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="960" height="92" viewBox="0 0 960 92" role="img" aria-label="Stack Marquee error: ${safe}"><rect width="960" height="92" rx="14" fill="#18191b"/><path d="M30 27h38v38H30z" fill="#d16b5b"/><path d="M49 36v15M49 57v1" stroke="#18191b" stroke-width="4" stroke-linecap="round"/><text x="86" y="55" fill="#f2f1ec" font-family="ui-sans-serif,system-ui,sans-serif" font-size="17" font-weight="650">${safe}</text></svg>`
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="960" height="92" viewBox="0 0 960 92" role="img" aria-label="README Stack error: ${safe}"><rect width="960" height="92" rx="14" fill="#18191b"/><path d="M30 27h38v38H30z" fill="#d16b5b"/><path d="M49 36v15M49 57v1" stroke="#18191b" stroke-width="4" stroke-linecap="round"/><text x="86" y="55" fill="#f2f1ec" font-family="ui-sans-serif,system-ui,sans-serif" font-size="17" font-weight="650">${safe}</text></svg>`
   };
 }
 

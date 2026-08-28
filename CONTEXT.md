@@ -1,11 +1,11 @@
-# Stack Marquee
+# README Stack
 
-Stack Marquee helps developers present a deliberately chosen tool stack as a moving visual in a GitHub profile README. It is a focused profile component, not a general README generator or an automated analysis of a developer's repositories.
+README Stack helps developers present a deliberately chosen tool stack as a moving visual in a GitHub profile README. It is a focused profile component, not a general README generator or an automated analysis of a developer's repositories.
 
 ## Language
 
 **Profile Owner**:
-A developer who creates and embeds a Stack Marquee in their GitHub profile README.
+A developer who creates and embeds a README Stack image in their GitHub profile README.
 _Avoid_: Customer, account holder, site owner
 
 **Tool**:

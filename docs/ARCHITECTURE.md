@@ -47,6 +47,6 @@ An image embedded in GitHub cannot provide a dependable pause control. The Build
 
 ## Reliability
 
-GitHub proxies remote README images through Camo. Camo reduces repeated origin traffic but can keep stale images. Stack Marquee avoids mutating any successful renderer URL. Configuration changes produce a different query string, and renderer changes that alter output require a new path such as `/v2/stack.svg`.
+GitHub proxies remote README images through Camo. Camo reduces repeated origin traffic but can keep stale images. README Stack avoids mutating any successful renderer URL. Configuration changes produce a different query string, and renderer changes that alter output require a new path such as `/v2/stack.svg`.
 
 The public service should maintain a canary README containing animated, static, light, dark, transparent, short, and maximum-size fixtures.

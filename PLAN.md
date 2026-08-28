@@ -1,4 +1,4 @@
-# Stack Marquee build plan
+# README Stack build plan
 
 ## Outcome
 

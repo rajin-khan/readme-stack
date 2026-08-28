@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "stack-marquee",
+  "name": "readme-stack",
   "main": "src/worker.js",
   "compatibility_date": "2026-08-29",
   "assets": {

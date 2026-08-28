@@ -5,7 +5,7 @@
 The local build is ready. It is time to create the public repository:
 
 1. Open <https://github.com/new>.
-2. Set the repository name to `stack-marquee`.
+2. Set the repository name to `readme-stack`.
 3. Set it to **Public**.
 4. Leave **Add a README**, **Add .gitignore**, and **Choose a license** off. Those files already exist here.
 5. Create the repository.

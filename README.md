@@ -1,6 +1,6 @@
-# Stack Marquee
+# README Stack
 
-Stack Marquee creates a scrolling SVG of the tools someone uses. It is made for GitHub profile READMEs.
+README Stack creates a scrolling SVG of the tools someone uses. It is made for GitHub profile READMEs.
 
 The project currently runs locally. The `stack.rajinkhan.com` links will work after it is deployed to Cloudflare.
 
@@ -40,7 +40,7 @@ Open `http://127.0.0.1:4173`.
 pnpm build
 pnpm check
 pnpm test
-WRANGLER_LOG_PATH=/tmp/stack-marquee-wrangler.log pnpm exec wrangler deploy --dry-run
+WRANGLER_LOG_PATH=/tmp/readme-stack-wrangler.log pnpm exec wrangler deploy --dry-run
 ```
 
 The dry run does not contact or change a Cloudflare account.
