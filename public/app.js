@@ -25,12 +25,13 @@ const state = {
   visibleCount: 18,
   removed: null,
   undoTimer: null,
+  undoHideTimer: null,
   dragId: null
 };
 
 const elements = Object.fromEntries([
   "preset-list", "tool-search", "search-count", "category-list", "catalog-grid", "show-more",
-  "selected-count", "clear-button", "reset-button", "marquee-preview", "preview-empty", "selection-error", "selected-tools",
+  "selected-count", "clear-button", "reset-button", "marquee-preview", "preview-empty", "empty-title", "empty-note", "selection-error", "selected-tools",
   "undo-bar", "undo-message", "undo-button", "copy-markdown", "copy-html", "embed-code"
 ].map((id) => [id, document.getElementById(id)]));
 
@@ -39,7 +40,8 @@ const byId = () => new Map(state.catalog.map((tool) => [tool.id, tool]));
 
 function parseInitialState() {
   const params = new URLSearchParams(location.search);
-  state.ids = [...new Set((params.get("i") || DEFAULT_IDS.join(",")).split(",").filter(Boolean))];
+  const ids = params.has("i") ? params.get("i") ?? "" : DEFAULT_IDS.join(",");
+  state.ids = [...new Set(ids.split(",").filter(Boolean))];
   const options = {
     treatment: ["dark", "light", "transparent"], speed: ["slow", "normal", "fast"],
     direction: ["left", "right"], spacing: ["compact", "comfortable"], labels: ["on", "off"],
@@ -125,7 +127,7 @@ function renderSelected() {
       <button type="button" data-remove aria-label="Remove ${tool.name}">×</button>
     </div>`;
   }).join("");
-  const error = state.ids.length < LIMITS.min ? `Choose at least ${LIMITS.min} tools.` : state.ids.length > LIMITS.max ? `Choose no more than ${LIMITS.max} tools.` : state.ids.length > LIMITS.warning ? `Long stacks move slowly. ${LIMITS.max} is the maximum.` : "";
+  const error = state.ids.length > LIMITS.max ? `Choose no more than ${LIMITS.max} tools.` : state.ids.length > LIMITS.warning ? `Long stacks move slowly. ${LIMITS.max} is the maximum.` : "";
   elements["selection-error"].hidden = !error;
   elements["selection-error"].textContent = error;
 }
@@ -150,6 +152,8 @@ function renderOutput() {
   const params = configParams();
   elements["marquee-preview"].hidden = !valid;
   elements["preview-empty"].hidden = valid;
+  elements["empty-title"].textContent = state.ids.length === 1 ? "One tool selected." : "Your stack is empty.";
+  elements["empty-note"].textContent = state.ids.length === 1 ? "Add one more tool to build the preview." : "Add at least 2 tools from the list.";
   if (valid) elements["marquee-preview"].src = `/v1/stack.svg?${params}`;
   else elements["marquee-preview"].removeAttribute("src");
   elements["marquee-preview"].alt = `Tech stack preview: ${state.ids.map((id) => byId().get(id)?.name).filter(Boolean).join(", ")}`;
@@ -177,11 +181,19 @@ function update() {
   renderOutput();
 }
 
-function dismissUndo() {
+function dismissUndo({ immediate = false } = {}) {
   if (state.undoTimer) window.clearTimeout(state.undoTimer);
+  if (state.undoHideTimer) window.clearTimeout(state.undoHideTimer);
   state.undoTimer = null;
-  state.removed = null;
-  elements["undo-bar"].hidden = true;
+  state.undoHideTimer = null;
+  elements["undo-bar"].classList.remove("is-visible");
+  const finish = () => {
+    state.removed = null;
+    elements["undo-bar"].hidden = true;
+    state.undoHideTimer = null;
+  };
+  if (immediate) finish();
+  else state.undoHideTimer = window.setTimeout(finish, 180);
 }
 
 function removeTool(id) {
@@ -190,7 +202,10 @@ function removeTool(id) {
   state.removed = { id, index: state.ids.indexOf(id) };
   state.ids = state.ids.filter((value) => value !== id);
   elements["undo-message"].textContent = `${known.get(id)?.name ?? "Tool"} removed.`;
+  if (state.undoHideTimer) window.clearTimeout(state.undoHideTimer);
+  state.undoHideTimer = null;
   elements["undo-bar"].hidden = false;
+  window.requestAnimationFrame(() => elements["undo-bar"].classList.add("is-visible"));
   if (state.undoTimer) window.clearTimeout(state.undoTimer);
   state.undoTimer = window.setTimeout(dismissUndo, 5000);
   update();
@@ -295,7 +310,6 @@ async function init() {
   state.catalog = await response.json();
   const known = byId();
   state.ids = state.ids.filter((id) => known.has(id));
-  if (state.ids.length < LIMITS.min) state.ids = DEFAULT_IDS.filter((id) => known.has(id));
   renderPresets();
   bindEvents();
   update();

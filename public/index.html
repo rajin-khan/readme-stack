@@ -11,8 +11,8 @@
     <link rel="icon" href="/brand/icon-16.png" sizes="16x16" type="image/png">
     <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="/styles.css?v=0.2.2">
-    <script type="module" src="/app.js?v=0.2.1"></script>
+    <link rel="stylesheet" href="/styles.css?v=0.2.4">
+    <script type="module" src="/app.js?v=0.2.4"></script>
   </head>
   <body>
     <a class="skip-link" href="#builder">Skip to builder</a>
@@ -20,7 +20,7 @@
       <a class="wordmark" href="/" aria-label="README Stack home">
         <span>Stack</span>
       </a>
-      <a class="header-link" href="https://github.com/rajin-khan" rel="me noreferrer" aria-label="Rajin Khan on GitHub">
+      <a class="header-link" href="https://github.com/rajin-khan/readme-stack" rel="noreferrer" aria-label="README Stack on GitHub">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.56 9.56 0 0 1 12 6.844a9.56 9.56 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/>
         </svg>
@@ -62,7 +62,11 @@
 
         <div class="preview-stage">
           <img id="marquee-preview" alt="Tech stack preview" width="960" height="92">
-          <p id="preview-empty" hidden>Pick at least 2 tools to build your stack.</p>
+          <div id="preview-empty" class="preview-empty" hidden>
+            <span class="empty-stack-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+            <strong id="empty-title">Your stack is empty.</strong>
+            <span id="empty-note">Add at least 2 tools from the list.</span>
+          </div>
         </div>
 
         <div id="selection-error" class="inline-error" role="alert" hidden></div>

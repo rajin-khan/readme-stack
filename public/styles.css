@@ -333,14 +333,44 @@ button:active { transform: translateY(1px); }
 }
 
 #marquee-preview { display: block; width: 100%; height: auto; border-radius: var(--radius); }
-#marquee-preview[hidden] { display: none; }
-#preview-empty {
+#marquee-preview[hidden] { display: none !important; }
+.preview-empty {
+  display: flex;
   width: 100%;
-  margin: 0;
+  min-height: 112px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   color: var(--muted);
-  font-size: 0.88rem;
   text-align: center;
 }
+.preview-empty[hidden] { display: none; }
+.preview-empty strong {
+  margin-top: 0.8rem;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+.preview-empty > span:last-child { margin-top: 0.2rem; font-size: 0.8rem; }
+.empty-stack-mark {
+  position: relative;
+  display: block;
+  width: 34px;
+  height: 25px;
+}
+.empty-stack-mark i {
+  position: absolute;
+  left: 3px;
+  display: block;
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--muted);
+  opacity: 0.52;
+}
+.empty-stack-mark i:nth-child(1) { top: 2px; }
+.empty-stack-mark i:nth-child(2) { top: 11px; left: 8px; background: var(--accent); opacity: 0.72; }
+.empty-stack-mark i:nth-child(3) { top: 20px; }
 
 .selected-tools {
   display: grid;
@@ -385,18 +415,43 @@ button:active { transform: translateY(1px); }
 }
 
 .undo-bar {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 20;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  border-radius: 10px;
+  gap: 1rem;
+  max-width: calc(100vw - 2rem);
+  border: 1px solid color-mix(in srgb, var(--page) 14%, transparent);
+  border-radius: 999px;
   background: var(--ink);
   color: var(--page);
-  padding: 0.6rem 0.75rem;
+  padding: 0.65rem 0.75rem 0.65rem 0.9rem;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.18);
   font-size: 0.82rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  pointer-events: none;
 }
 .undo-bar[hidden] { display: none; }
-.undo-bar button { border: 0; background: transparent; color: inherit; font-weight: 800; text-decoration: underline; cursor: pointer; }
+.undo-bar.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.undo-bar button {
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--page) 12%, transparent);
+  color: inherit;
+  padding: 0.28rem 0.55rem;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.undo-bar button:hover { background: color-mix(in srgb, var(--page) 20%, transparent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .undo-bar { transition: none; transform: none; }
+}
 
 .controls {
   margin-top: 1rem;
