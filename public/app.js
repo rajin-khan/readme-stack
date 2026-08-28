@@ -24,12 +24,13 @@ const state = {
   search: "",
   visibleCount: 18,
   removed: null,
+  undoTimer: null,
   dragId: null
 };
 
 const elements = Object.fromEntries([
   "preset-list", "tool-search", "search-count", "category-list", "catalog-grid", "show-more",
-  "selected-count", "reset-button", "marquee-preview", "selection-error", "selected-tools",
+  "selected-count", "clear-button", "reset-button", "marquee-preview", "preview-empty", "selection-error", "selected-tools",
   "undo-bar", "undo-message", "undo-button", "copy-markdown", "copy-html", "embed-code"
 ].map((id) => [id, document.getElementById(id)]));
 
@@ -113,6 +114,7 @@ function renderCatalog() {
 function renderSelected() {
   const known = byId();
   elements["selected-count"].textContent = state.ids.length;
+  elements["clear-button"].disabled = state.ids.length === 0;
   elements["selected-tools"].innerHTML = state.ids.map((id, index) => {
     const tool = known.get(id);
     if (!tool) return "";
@@ -146,10 +148,13 @@ function getEmbedData(format = "html") {
 function renderOutput() {
   const valid = state.ids.length >= LIMITS.min && state.ids.length <= LIMITS.max;
   const params = configParams();
-  elements["marquee-preview"].src = `/v1/stack.svg?${params}`;
+  elements["marquee-preview"].hidden = !valid;
+  elements["preview-empty"].hidden = valid;
+  if (valid) elements["marquee-preview"].src = `/v1/stack.svg?${params}`;
+  else elements["marquee-preview"].removeAttribute("src");
   elements["marquee-preview"].alt = `Tech stack preview: ${state.ids.map((id) => byId().get(id)?.name).filter(Boolean).join(", ")}`;
   const embed = getEmbedData();
-  elements["embed-code"].value = embed.html;
+  elements["embed-code"].value = valid ? embed.html : "";
   elements["copy-markdown"].disabled = !valid;
   elements["copy-html"].disabled = !valid;
   history.replaceState(null, "", `${location.pathname}?${params}`);
@@ -172,6 +177,13 @@ function update() {
   renderOutput();
 }
 
+function dismissUndo() {
+  if (state.undoTimer) window.clearTimeout(state.undoTimer);
+  state.undoTimer = null;
+  state.removed = null;
+  elements["undo-bar"].hidden = true;
+}
+
 function removeTool(id) {
   if (!state.ids.includes(id)) return;
   const known = byId();
@@ -179,6 +191,8 @@ function removeTool(id) {
   state.ids = state.ids.filter((value) => value !== id);
   elements["undo-message"].textContent = `${known.get(id)?.name ?? "Tool"} removed.`;
   elements["undo-bar"].hidden = false;
+  if (state.undoTimer) window.clearTimeout(state.undoTimer);
+  state.undoTimer = window.setTimeout(dismissUndo, 5000);
   update();
 }
 
@@ -254,8 +268,7 @@ function bindEvents() {
   elements["undo-button"].addEventListener("click", () => {
     if (!state.removed) return;
     state.ids.splice(state.removed.index, 0, state.removed.id);
-    state.removed = null;
-    elements["undo-bar"].hidden = true;
+    dismissUndo();
     update();
   });
   document.querySelector(".controls").addEventListener("click", (event) => {
@@ -265,7 +278,12 @@ function bindEvents() {
     state[fieldset.dataset.control] = button.dataset.value;
     update();
   });
-  elements["reset-button"].addEventListener("click", () => { state.ids = [...DEFAULT_IDS]; update(); });
+  elements["reset-button"].addEventListener("click", () => { dismissUndo(); state.ids = [...DEFAULT_IDS]; update(); });
+  elements["clear-button"].addEventListener("click", () => {
+    state.ids = [];
+    dismissUndo();
+    update();
+  });
   elements["copy-markdown"].addEventListener("click", () => copyText(getEmbedData().markdown, elements["copy-markdown"], "Copy Markdown"));
   elements["copy-html"].addEventListener("click", () => copyText(getEmbedData().html, elements["copy-html"], "Copy HTML"));
 }

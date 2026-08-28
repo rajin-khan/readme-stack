@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="/styles.css?v=0.2.1">
-    <script type="module" src="/app.js?v=0.2.0"></script>
+    <script type="module" src="/app.js?v=0.2.1"></script>
   </head>
   <body>
     <a class="skip-link" href="#builder">Skip to builder</a>
@@ -57,11 +57,15 @@
             <p class="section-label">Preview</p>
             <h2 id="preview-title"><span id="selected-count">0</span> tools selected</h2>
           </div>
-          <button id="reset-button" class="text-button" type="button">Reset</button>
+          <div class="preview-actions">
+            <button id="clear-button" class="text-button" type="button">Clear all</button>
+            <button id="reset-button" class="text-button" type="button">Reset</button>
+          </div>
         </div>
 
         <div class="preview-stage">
           <img id="marquee-preview" alt="Tech stack preview" width="960" height="92">
+          <p id="preview-empty" hidden>Pick at least 2 tools to build your stack.</p>
         </div>
 
         <div id="selection-error" class="inline-error" role="alert" hidden></div>

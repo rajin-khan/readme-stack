@@ -311,6 +311,8 @@ button:active { transform: translateY(1px); }
 
 #show-more { margin-top: 0.75rem; }
 .preview-head { display: flex; align-items: end; justify-content: space-between; gap: 1rem; }
+.preview-actions { display: flex; align-items: center; gap: 0.85rem; }
+.preview-actions .text-button:disabled { opacity: 0.38; cursor: default; }
 
 .preview-stage {
   display: flex;
@@ -330,17 +332,26 @@ button:active { transform: translateY(1px); }
 }
 
 #marquee-preview { display: block; width: 100%; height: auto; border-radius: var(--radius); }
+#marquee-preview[hidden] { display: none; }
+#preview-empty {
+  width: 100%;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-align: center;
+}
 
 .selected-tools {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(172px, 1fr));
   min-height: 46px;
-  flex-wrap: wrap;
   gap: 0.45rem;
   margin-bottom: 0.8rem;
 }
 
 .selected-tool {
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 27px 27px 27px;
   align-items: center;
   gap: 0.35rem;
   border: 1px solid var(--line);
@@ -351,7 +362,7 @@ button:active { transform: translateY(1px); }
 }
 
 .selected-tool.dragging { opacity: 0.45; }
-.selected-tool span { font-size: 0.8rem; font-weight: 700; }
+.selected-tool span { overflow: hidden; font-size: 0.8rem; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
 .selected-tool button {
   width: 27px;
   height: 27px;
