@@ -119,9 +119,13 @@ button { color: inherit; }
 }
 
 .wordmark {
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
+  padding-top: 0.35rem;
+  font-family: "La Belle Aurore", "Bradley Hand", "Segoe Print", cursive;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1;
+  transform: rotate(-2deg);
+  transform-origin: left center;
 }
 
 .header-link {
@@ -172,6 +176,20 @@ h1 {
   font-weight: 700;
   letter-spacing: -0.055em;
   line-height: 0.96;
+}
+
+h1 em {
+  display: inline-block;
+  margin-left: 0.08em;
+  padding: 0.08em 0.03em 0.18em;
+  font-family: "La Belle Aurore", "Bradley Hand", "Segoe Print", cursive;
+  font-size: 0.94em;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+  transform: rotate(-2deg) translateY(0.04em);
+  transform-origin: left bottom;
 }
 
 .intro > p:last-child {

@@ -1,3 +1,5 @@
+<img src="./public/brand/favicon.svg" width="44" alt="README Stack handwritten S icon">
+
 # README Stack
 
 README Stack creates a scrolling SVG of the tools someone uses. It is made for GitHub profile READMEs.
