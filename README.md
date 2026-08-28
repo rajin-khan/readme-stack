@@ -1,4 +1,6 @@
-<img src="./public/brand/favicon.svg" width="44" alt="README Stack handwritten S icon">
+<p align="center">
+  <img src="./public/brand/favicon.svg" width="64" alt="README Stack handwritten S icon">
+</p>
 
 # README Stack
 

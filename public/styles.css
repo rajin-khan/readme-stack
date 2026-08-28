@@ -159,13 +159,12 @@ button { color: inherit; }
 }
 
 .intro { max-width: 38rem; }
-.eyebrow, .section-label {
+.section-label {
   margin: 0 0 0.35rem;
   color: var(--muted);
   font-size: 0.95rem;
   font-weight: 400;
 }
-.eyebrow { font-family: "La Belle Aurore", "Bradley Hand", "Segoe Print", cursive; font-size: 1.05rem; transform: rotate(-1deg); transform-origin: left; }
 .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: lowercase; }
 
 h1, h2, p { margin-top: 0; }
