@@ -11,7 +11,7 @@
     <link rel="icon" href="/brand/icon-16.png" sizes="16x16" type="image/png">
     <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="/styles.css?v=0.2.1">
+    <link rel="stylesheet" href="/styles.css?v=0.2.2">
     <script type="module" src="/app.js?v=0.2.1"></script>
   </head>
   <body>
@@ -57,10 +57,7 @@
             <p class="section-label">Preview</p>
             <h2 id="preview-title"><span id="selected-count">0</span> tools selected</h2>
           </div>
-          <div class="preview-actions">
-            <button id="clear-button" class="text-button" type="button">Clear all</button>
-            <button id="reset-button" class="text-button" type="button">Reset</button>
-          </div>
+          <button id="reset-button" class="text-button" type="button">Restore defaults</button>
         </div>
 
         <div class="preview-stage">
@@ -70,6 +67,9 @@
 
         <div id="selection-error" class="inline-error" role="alert" hidden></div>
         <div id="selected-tools" class="selected-tools" aria-label="Selected tools"></div>
+        <div class="selection-actions">
+          <button id="clear-button" class="text-button" type="button">Clear all</button>
+        </div>
         <div id="undo-bar" class="undo-bar" role="status" hidden>
           <span id="undo-message"></span>
           <button id="undo-button" type="button">Undo</button>
