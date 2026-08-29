@@ -27,8 +27,8 @@
 <p align="center">
   <a href="https://stack.rajinkhan.com/?i=typescript,react,nextdotjs,tailwindcss,cloudflare,github">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://stack.rajinkhan.com/v1/stack.svg?i=typescript,react,nextdotjs,tailwindcss,cloudflare,github&amp;t=dark">
-      <source media="(prefers-color-scheme: light)" srcset="https://stack.rajinkhan.com/v1/stack.svg?i=typescript,react,nextdotjs,tailwindcss,cloudflare,github&amp;t=light">
+      <source media="(prefers-color-scheme: dark)" srcset="https://stack.rajinkhan.com/v1/stack.svg?i=typescript%2Creact%2Cnextdotjs%2Ctailwindcss%2Ccloudflare%2Cgithub&amp;t=dark">
+      <source media="(prefers-color-scheme: light)" srcset="https://stack.rajinkhan.com/v1/stack.svg?i=typescript%2Creact%2Cnextdotjs%2Ctailwindcss%2Ccloudflare%2Cgithub&amp;t=light">
       <img alt="Scrolling stack with TypeScript, React, Next.js, Tailwind CSS, Cloudflare, and GitHub" src="https://stack.rajinkhan.com/v1/stack.svg?i=typescript,react,nextdotjs,tailwindcss,cloudflare,github&amp;t=light">
     </picture>
   </a>
@@ -166,8 +166,8 @@ The builder can copy a `picture` snippet that switches automatically between lig
 ```html
 <a href="https://stack.rajinkhan.com/?i=typescript,react,nextdotjs,tailwindcss">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://stack.rajinkhan.com/v1/stack.svg?i=typescript,react,nextdotjs,tailwindcss&amp;t=dark">
-    <source media="(prefers-color-scheme: light)" srcset="https://stack.rajinkhan.com/v1/stack.svg?i=typescript,react,nextdotjs,tailwindcss&amp;t=light">
+    <source media="(prefers-color-scheme: dark)" srcset="https://stack.rajinkhan.com/v1/stack.svg?i=typescript%2Creact%2Cnextdotjs%2Ctailwindcss&amp;t=dark">
+    <source media="(prefers-color-scheme: light)" srcset="https://stack.rajinkhan.com/v1/stack.svg?i=typescript%2Creact%2Cnextdotjs%2Ctailwindcss&amp;t=light">
     <img alt="My stack: TypeScript, React, Next.js, and Tailwind CSS" src="https://stack.rajinkhan.com/v1/stack.svg?i=typescript,react,nextdotjs,tailwindcss&amp;t=light">
   </picture>
 </a>
