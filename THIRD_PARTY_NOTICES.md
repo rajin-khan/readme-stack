@@ -4,11 +4,13 @@ README Stack is MIT-licensed. The catalog also contains names, marks, and assets
 
 Third-party names and marks are property of their respective owners and are used only to identify the corresponding tools. Their inclusion does not imply affiliation, sponsorship, or endorsement. A catalog entry is not a claim that its owner endorses README Stack.
 
+For practical guidance on embedding a generated stack or reusing an individual asset, read [Logo use and attribution](./docs/LOGO_USE.md).
+
 ## Catalog sources
 
 ### Simple Icons
 
-README Stack uses Simple Icons 16.28.0 under CC0-1.0. That license covers the Simple Icons package. It does not grant trademark rights in the brands represented by the icons. See the [Simple Icons license](https://github.com/simple-icons/simple-icons/blob/16.28.0/LICENSE.md) and [disclaimer](https://github.com/simple-icons/simple-icons/blob/16.28.0/DISCLAIMER.md).
+README Stack uses Simple Icons 16.28.0 under CC0-1.0. Simple Icons warns that CC0 for the package does not mean every represented mark is free of icon-specific or trademark restrictions. See the [Simple Icons license](https://github.com/simple-icons/simple-icons/blob/16.28.0/LICENSE.md) and [disclaimer](https://github.com/simple-icons/simple-icons/blob/16.28.0/DISCLAIMER.md).
 
 ### Devicon
 

@@ -13,6 +13,8 @@ The build currently accepts marks from:
 
 Both packages are pinned and were published more than seven days before installation. Checked-in additions record their source and provider in `data/custom-tools.mjs`. Neutral glyphs must not imitate a protected logo. The renderer never downloads a logo during a request.
 
+README authors should read [Logo use and attribution](./LOGO_USE.md). It explains what the catalog records mean and when a separate use may require checking an owner's terms.
+
 ## Required metadata
 
 Every generated Tool must have:
@@ -41,7 +43,8 @@ The build adds this record to every generated entry. `pnpm check` fails if any T
 6. Verify the source's trademark or brand guidance.
 7. Add an explicit rights record to `data/tool-rights.mjs` when the provider defaults do not describe the asset accurately.
 8. Add required attribution to `THIRD_PARTY_NOTICES.md`.
-9. Run `pnpm check` and `pnpm test`.
+9. Update `docs/LOGO_USE.md` if the addition changes what README authors need to know.
+10. Run `pnpm check` and `pnpm test`.
 
 Do not accept arbitrary SVG uploads, arbitrary remote logo URLs, scraped marks with unknown provenance, or a mark whose brand owner prohibits the intended use.
 

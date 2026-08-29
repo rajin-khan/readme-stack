@@ -5,7 +5,7 @@ labels: [tool-request]
 body:
   - type: markdown
     attributes:
-      value: Read the Tool catalog policy before submitting. An official Simple Icons or Devicon mark is strongly preferred.
+      value: Read the Tool catalog policy and Logo use and attribution guide before submitting. A mark already available in the pinned Simple Icons or Devicon package is strongly preferred.
   - type: input
     id: name
     attributes:

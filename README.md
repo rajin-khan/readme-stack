@@ -147,7 +147,7 @@ The part after `i=` is an ordered, comma-separated list. The hosted URL returns 
 
 ## Made for profile READMEs
 
-- 395 tools sourced from [Simple Icons](https://simpleicons.org), [Devicon](https://devicon.dev), official project assets, and reviewed neutral glyphs
+- 413 tools sourced from [Simple Icons](https://simpleicons.org), [Devicon](https://devicon.dev), official project assets, and reviewed neutral glyphs
 - Tool names on by default, so the stack stays readable beyond the logos
 - Dark, light, and transparent treatments
 - Infinite, one-pass, and static motion
@@ -224,6 +224,7 @@ The Wrangler dry run does not contact or change a Cloudflare account.
 
 - [Contributing](./CONTRIBUTING.md) explains the local workflow and pull request checks.
 - [Tool catalog policy](./docs/TOOL_CATALOG.md) covers logo sources, additions, and corrections.
+- [Logo use and attribution](./docs/LOGO_USE.md) explains what README authors and asset reusers need to know.
 - [Third-party notices](./THIRD_PARTY_NOTICES.md) records catalog licenses, attributions, and trademark sources.
 - [Compatibility](./docs/COMPATIBILITY.md) records supported GitHub and browser behavior.
 - [Architecture](./docs/ARCHITECTURE.md) describes the builder, renderer, and generated catalog.

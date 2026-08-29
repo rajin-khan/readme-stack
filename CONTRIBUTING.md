@@ -7,6 +7,7 @@ Bug fixes, accessibility improvements, documentation corrections, and carefully 
 - Search the existing issues before opening a new one.
 - Use the Tool request template for catalog additions.
 - Read the [Tool catalog policy](./docs/TOOL_CATALOG.md) before changing a logo or its metadata.
+- Read [Logo use and attribution](./docs/LOGO_USE.md) before adding a checked-in asset or changing a rights record.
 - Keep the renderer deterministic. A request must not depend on a database, live API, or remote image.
 - Existing `/v1/stack.svg` output is immutable. Any intentional visual change to an existing URL needs a new renderer version.
 
@@ -41,6 +42,6 @@ Then inspect the affected SVG in dark, light, and transparent treatments. Motion
 
 ## Pull requests
 
-Explain what changed and why. Include before-and-after images for visual changes and list any renderer URLs whose output changes. By submitting a contribution, you agree that it can be released under the repository's MIT License.
+Explain what changed and why. Include before-and-after images for visual changes and list any renderer URLs whose output changes. For catalog work, list the asset source, package or file license, and any brand policy you reviewed. By submitting a contribution, you agree that your contribution can be released under the repository's MIT License. This does not transfer ownership of third-party marks.
 
 For security problems, do not open a public issue. Use [GitHub's private vulnerability reporting](https://github.com/rajin-khan/readme-stack/security/advisories/new).
