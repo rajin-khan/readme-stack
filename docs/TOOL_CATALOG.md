@@ -8,8 +8,10 @@ The build currently accepts marks from:
 
 - Simple Icons 16.28.0
 - Devicon 2.17.0
+- Checked-in official project assets
+- Neutral glyphs made for README Stack when no reusable canonical logo exists
 
-Both packages are pinned and were published more than seven days before installation. The renderer never downloads a logo during a request.
+Both packages are pinned and were published more than seven days before installation. Checked-in additions record their source and provider in `data/custom-tools.mjs`. Neutral glyphs must not imitate a protected logo. The renderer never downloads a logo during a request.
 
 ## Required metadata
 
@@ -27,11 +29,12 @@ Every generated Tool must have:
 ## Adding a Tool
 
 1. Add its canonical source title to the relevant category in `data/tool-seeds.mjs`.
-2. Run `pnpm build`.
-3. Confirm it is not listed in `public/catalog-meta.json` under `missing`.
-4. Inspect the Tool in dark, light, and transparent Treatments.
-5. Verify the source's trademark or brand guidance.
-6. Run `pnpm check` and `pnpm test`.
+2. If neither pinned package supplies it, add a reviewed entry to `data/custom-tools.mjs` using an official project asset or a clearly labeled neutral glyph.
+3. Run `pnpm build`.
+4. Confirm it is not listed in `public/catalog-meta.json` under `missing`.
+5. Inspect the Tool in dark, light, and transparent Treatments.
+6. Verify the source's trademark or brand guidance.
+7. Run `pnpm check` and `pnpm test`.
 
 Do not accept arbitrary SVG uploads, arbitrary remote logo URLs, scraped marks with unknown provenance, or a mark whose brand owner prohibits the intended use.
 

@@ -20,6 +20,13 @@ test("renders every selected Tool in the reduced-motion strip", () => {
   assert.equal(result.config.tools.length, 4);
 });
 
+test("renders reviewed custom Tools without remote content", () => {
+  const result = renderStackSvg("https://stack.rajinkhan.com/v1/stack.svg?i=groq,chromadb,seaborn,sql");
+  assert.equal(result.status, 200);
+  assert.match(result.svg, /Groq, ChromaDB, Seaborn, SQL/);
+  assert.doesNotMatch(result.svg, /<script|(?:href|src)=["']https?:\/\//i);
+});
+
 test("renders a 100-Tool Stack with a multi-row static fallback", () => {
   const ids = catalog.slice(0, 100).map((tool) => tool.id).join(",");
   const result = renderStackSvg(`https://stack.rajinkhan.com/v1/stack.svg?i=${ids}`);

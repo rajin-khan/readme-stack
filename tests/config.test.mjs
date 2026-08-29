@@ -37,6 +37,12 @@ test("accepts 100 Tools and rejects 101", () => {
   assert.match(rejected.error, /no more than 100/);
 });
 
+test("parses reviewed custom Tools", () => {
+  const result = parseConfiguration("https://stack.rajinkhan.com/v1/stack.svg?i=groq,chromadb,seaborn,sql");
+  assert.equal(result.ok, true);
+  assert.deepEqual(result.config.tools.map((tool) => tool.name), ["Groq", "ChromaDB", "Seaborn", "SQL"]);
+});
+
 test("serializes only non-default options", () => {
   const result = parseConfiguration("https://stack.rajinkhan.com/v1/stack.svg?i=react,typescript&t=light&s=fast&l=off");
   assert.equal(result.ok, true);

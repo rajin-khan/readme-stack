@@ -147,7 +147,7 @@ The part after `i=` is an ordered, comma-separated list. The hosted URL returns 
 
 ## Made for profile READMEs
 
-- 345 tools sourced from [Simple Icons](https://simpleicons.org) and [Devicon](https://devicon.dev)
+- 374 tools sourced from [Simple Icons](https://simpleicons.org), [Devicon](https://devicon.dev), official project assets, and reviewed neutral glyphs
 - Tool names on by default, so the stack stays readable beyond the logos
 - Dark, light, and transparent treatments
 - Infinite, one-pass, and static motion
@@ -231,4 +231,4 @@ The Wrangler dry run does not contact or change a Cloudflare account.
 
 ## License and trademarks
 
-README Stack is available under the [MIT License](./LICENSE). Simple Icons data is distributed under CC0-1.0 and Devicon under MIT. Product names and logos belong to their owners. Inclusion does not imply endorsement.
+README Stack is available under the [MIT License](./LICENSE). Simple Icons data is distributed under CC0-1.0 and Devicon under MIT. The checked-in Chroma asset comes from Chroma's Apache-2.0 repository. Neutral glyphs are part of README Stack. Product names and logos belong to their owners. Inclusion does not imply endorsement.

@@ -3,13 +3,13 @@ export const toolSeeds = {
     "JavaScript", "TypeScript", "Python", "Rust", "Go", "C", "C++", "C#",
     "OpenJDK", "Kotlin", "Swift", "Dart", "PHP", "Ruby", "Scala", "Elixir",
     "Erlang", "Haskell", "Lua", "R", "Julia", "Perl", "Zig", "Solidity",
-    "WebAssembly", "GNU Bash", "PowerShell", "fish shell", "Groovy", "OCaml",
+    "WebAssembly", "SQL", "GNU Bash", "PowerShell", "fish shell", "Groovy", "OCaml",
     "Fortran", "Crystal", "Nim", "AssemblyScript", "Clojure", "F#", "Visual Basic",
     "Markdown", "MDX", "LaTeX", "YAML", "JSON", "TOML", "XML", "GraphQL"
   ],
   Frontend: [
     "HTML5", "CSS", "React", "Next.js", "Vue.js", "Nuxt", "Angular", "Svelte",
-    "SvelteKit", "Astro", "Solid", "Qwik", "Preact", "htmx", "Alpine.js", "Remix",
+    "SvelteKit", "Astro", "Solid", "Qwik", "Preact", "htmx", "Alpine.js", "Remix", "v0",
     "Gatsby", "Vite", "webpack", "Rollup.js", "Parcel", "esbuild", "Babel", "SWC",
     "Biome", "ESLint", "Prettier", "Tailwind CSS", "Sass", "Less", "PostCSS",
     "Bootstrap", "Bulma", "Chakra UI", "MUI", "Radix UI", "shadcn/ui", "Ant Design",
@@ -17,7 +17,8 @@ export const toolSeeds = {
     "Jasmine", "Testing Library", "D3", "Three.js", "GSAP", "Framer", "WebGL",
     "Web Components", "Redux", "Zustand", "React Query", "React Hook Form", "RxJS",
     "styled-components", "Emotion", "CSS Modules", "UnoCSS", "Chart.js", "ECharts",
-    "Leaflet", "Mapbox", "Socket.io", "npm", "pnpm", "Yarn"
+    "Leaflet", "Mapbox", "Socket.io", "Turborepo", "Nx", "TanStack", "React Router", "Zod",
+    "npm", "pnpm", "Yarn"
   ],
   Backend: [
     "Node.js", "Deno", "Bun", "Express", "Fastify", "NestJS", "Koa", "Hono",
@@ -26,25 +27,29 @@ export const toolSeeds = {
     "Drizzle", "Sequelize", "TypeORM", "Mongoose", "Nginx", "Caddy", "Traefik Proxy",
     "Apache", "RabbitMQ", "Apache Kafka", "Redis", "Memcached", "Elasticsearch",
     "OpenSearch", "gRPC", "OpenAPI Initiative", "Swagger", "OAuth", "Auth0", "Clerk",
-    "Keycloak", "JSON Web Tokens", "Stripe", "Lemon Squeezy", "Paddle", "Resend",
-    "Twilio", "SendGrid", "Celery", "Gunicorn", "Gradle", "Apache Maven"
+    "Keycloak", "JSON Web Tokens", "Better Auth", "Stripe", "Lemon Squeezy", "Paddle", "Resend",
+    "Twilio", "SendGrid", "Celery", "Gunicorn", "Gradle", "Apache Maven", "Payload CMS",
+    "PocketBase", "Appwrite"
   ],
   "Data and AI": [
     "PostgreSQL", "MySQL", "MariaDB", "SQLite", "MongoDB", "Supabase", "Firebase",
     "PlanetScale", "Neon", "Cockroach Labs", "Oracle", "Microsoft SQL Server",
     "Snowflake", "Databricks", "Google BigQuery", "ClickHouse", "DuckDB", "Apache Cassandra",
     "Amazon DynamoDB", "InfluxDB", "Neo4j", "Chroma", "Pinecone", "Qdrant", "Weaviate",
-    "NumPy", "pandas", "PyTorch", "TensorFlow", "Keras", "scikit-learn", "SciPy",
+    "Groq", "Claude", "Claude Code", "Mistral AI", "Perplexity", "OpenRouter", "Replicate",
+    "Modal", "CrewAI", "Model Context Protocol", "LangGraph", "NumPy", "pandas", "PyTorch",
+    "TensorFlow", "Keras", "scikit-learn", "SciPy",
     "Polars", "Jupyter", "Anaconda", "OpenCV", "Hugging Face", "Ollama", "LangChain",
     "OpenAI", "Anthropic", "Google Gemini", "Kaggle", "Apache Spark", "Apache Airflow",
-    "dbt", "Grafana", "Metabase", "Power BI", "Tableau", "Plotly", "Matplotlib",
-    "Selenium", "Ultralytics", "MLflow", "Weights & Biases", "Ray", "Streamlit", "Gradio"
+    "dbt", "Grafana", "Metabase", "Power BI", "Tableau", "Plotly", "Matplotlib", "Seaborn",
+    "Selenium", "Ultralytics", "MLflow", "Weights & Biases", "Ray", "Streamlit", "Gradio",
+    "Convex", "Upstash"
   ],
   "Cloud and DevOps": [
     "Git", "GitHub", "GitLab", "Bitbucket", "GitHub Actions", "Docker", "Kubernetes",
     "Helm", "Terraform", "OpenTofu", "Ansible", "Puppet", "Chef", "Jenkins", "CircleCI",
     "Travis CI", "Argo", "Flux", "AWS", "Google Cloud", "Microsoft Azure", "Cloudflare",
-    "Vercel", "Netlify", "Railway", "Render", "Fly.io", "DigitalOcean", "Heroku",
+    "Vercel", "Netlify", "Railway", "Render", "Fly.io", "DigitalOcean", "Heroku", "Cloudflare Workers",
     "Linode", "Vultr", "Oracle Cloud", "IBM Cloud", "OpenStack", "Proxmox", "VMware",
     "VirtualBox", "Vagrant", "Linux", "Ubuntu", "Debian", "Fedora", "Alpine Linux",
     "Arch Linux", "Red Hat", "CentOS", "NixOS", "Homebrew", "GNU", "Let's Encrypt",
@@ -59,7 +64,7 @@ export const toolSeeds = {
   "Design and Tools": [
     "Figma", "Sketch", "Adobe Photoshop", "Adobe Illustrator", "Adobe After Effects",
     "Adobe Premiere Pro", "Blender", "Canva", "Notion", "Linear", "Jira", "Trello",
-    "Asana", "Slack", "Discord", "Obsidian", "Visual Studio Code", "Visual Studio",
+    "Asana", "Slack", "Discord", "Obsidian", "Cursor", "Windsurf", "Visual Studio Code", "Visual Studio",
     "IntelliJ IDEA", "WebStorm", "PyCharm", "Vim", "Neovim", "Zed Industries", "Sublime Text",
     "Postman", "Insomnia", "Bruno", "DBeaver", "DataGrip", "GitKraken", "GitHub Desktop",
     "Warp", "iTerm2", "Windows Terminal", "tmux", "CodePen", "StackBlitz", "CodeSandbox",

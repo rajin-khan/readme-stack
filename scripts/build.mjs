@@ -1,15 +1,29 @@
 import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import * as simpleIcons from "simple-icons";
+import { customTools } from "../data/custom-tools.mjs";
 import { featuredOrder, toolSeeds } from "../data/tool-seeds.mjs";
 
 const normalize = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, "");
 const icons = Object.values(simpleIcons).filter((icon) => icon?.slug && icon?.path);
 const byExactTitle = new Map(icons.map((icon) => [icon.title.toLowerCase(), icon]));
 const byNormalized = new Map();
+const customByNormalized = new Map();
 
 for (const icon of icons) {
   for (const key of [normalize(icon.title), normalize(icon.slug)]) {
     if (!byNormalized.has(key)) byNormalized.set(key, icon);
+  }
+}
+
+for (const tool of customTools) {
+  if (!/^[a-z0-9]+$/.test(tool.id) || !tool.name || !tool.source || !tool.provider || (!tool.path && !tool.body)) {
+    throw new Error(`Custom Tool ${tool.id || "unknown"} is incomplete.`);
+  }
+  if (tool.body && /<script\b|\bon[a-z]+=|\b(?:href|src)=["'](?:https?:|\/\/)/i.test(tool.body)) {
+    throw new Error(`Custom Tool ${tool.id} contains unsafe or remote SVG content.`);
+  }
+  for (const key of [tool.id, tool.name, ...(tool.aliases ?? [])].map(normalize)) {
+    if (!customByNormalized.has(key)) customByNormalized.set(key, tool);
   }
 }
 
@@ -86,6 +100,17 @@ async function resolveDevicon(requestedName) {
 
 for (const [category, names] of Object.entries(toolSeeds)) {
   for (const requestedName of names) {
+    const custom = customByNormalized.get(normalize(requestedName));
+    if (custom) {
+      if (used.has(custom.id)) continue;
+      used.add(custom.id);
+      catalog.push({
+        ...custom,
+        category,
+        aliases: [...new Set([requestedName, custom.name, custom.id, ...(custom.aliases ?? [])].map(normalize).filter(Boolean))]
+      });
+      continue;
+    }
     const icon = byExactTitle.get(requestedName.toLowerCase()) ?? byNormalized.get(normalize(requestedName));
     if (!icon) {
       const devicon = await resolveDevicon(requestedName);
