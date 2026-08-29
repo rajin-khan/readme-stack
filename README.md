@@ -157,6 +157,9 @@ The part after `i=` is an ordered, comma-separated list. The hosted URL returns 
 
 Stacks can contain 2 to 100 tools. Duplicate IDs are removed, invalid input returns a readable SVG error, and the service does not inspect GitHub accounts or repositories.
 
+> [!TIP]
+> Try to keep a Stack under 30 Tools if you want people to actually read it. Split bigger setups into separate rows. The renderer still supports 100 Tools in one row for the psychopaths among you.
+
 ## Match GitHub's theme
 
 The builder can copy a `picture` snippet that switches automatically between light and dark treatments:
