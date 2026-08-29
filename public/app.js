@@ -104,9 +104,12 @@ function renderCatalog() {
   elements["search-count"].textContent = `${matches.length} found`;
   elements["catalog-grid"].innerHTML = visible.map((tool) => {
     const selected = state.ids.includes(tool.id);
-    return `<button class="tool-card" type="button" data-tool-id="${tool.id}" aria-pressed="${selected}" aria-label="${selected ? "Remove" : "Add"} ${tool.name}">
+    const fallback = tool.rights?.status === "neutral";
+    const fallbackDescription = "Fallback mark because the original artwork has redistribution restrictions";
+    return `<button class="tool-card" type="button" data-tool-id="${tool.id}" aria-pressed="${selected}" aria-label="${selected ? "Remove" : "Add"} ${tool.name}${fallback ? `. ${fallbackDescription}` : ""}">
       <span class="tool-icon" aria-hidden="true">${iconMarkup(tool)}</span>
-      <span>${tool.name}</span><small>${selected ? "Added" : "Add"}</small>
+      <span class="tool-copy"><span class="tool-name">${tool.name}</span>${fallback ? `<span class="tool-note" title="${fallbackDescription}">Fallback · licensing</span>` : ""}</span>
+      <small class="tool-action">${selected ? "Added" : "Add"}</small>
     </button>`;
   }).join("");
   elements["show-more"].hidden = visible.length >= matches.length;
@@ -305,7 +308,7 @@ function bindEvents() {
 
 async function init() {
   parseInitialState();
-  const response = await fetch("/catalog.json?v=0.1.5");
+  const response = await fetch("/catalog.json?v=0.1.6");
   if (!response.ok) throw new Error("The tool list could not be loaded.");
   state.catalog = await response.json();
   const known = byId();

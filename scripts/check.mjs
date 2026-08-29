@@ -42,6 +42,7 @@ for (const required of [
   if (!index.includes(required)) failures.push(`public/index.html is missing SEO markup: ${required}`);
 }
 if (!index.includes("Third-party names and marks belong to their owners")) failures.push("public/index.html is missing the public trademark notice.");
+if (!sourceByFile.get("public/app.js").includes("Fallback · licensing")) failures.push("public/app.js is missing the neutral-mark explanation.");
 
 const robots = sourceByFile.get("public/robots.txt");
 if (!robots.includes("https://stack.rajinkhan.com/sitemap.xml")) failures.push("robots.txt does not advertise the sitemap.");

@@ -331,8 +331,10 @@ button:active { transform: translateY(1px); }
 
 .tool-card:hover { border-color: var(--line); background: var(--panel); }
 .tool-card[aria-pressed="true"] { border-color: color-mix(in srgb, var(--accent) 34%, var(--line)); background: color-mix(in srgb, var(--accent) 6%, var(--panel)); }
-.tool-card span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.88rem; font-weight: 650; }
-.tool-card small { color: var(--muted); font-size: 0.74rem; }
+.tool-copy { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; gap: 0.12rem; }
+.tool-card .tool-name { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.88rem; font-weight: 650; }
+.tool-note { max-width: 100%; overflow: hidden; color: color-mix(in srgb, var(--muted) 84%, var(--ink)); font-size: 0.64rem; font-weight: 600; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+.tool-action { color: var(--muted); font-size: 0.74rem; }
 .tool-icon { display: block; width: 27px; height: 27px; object-fit: contain; }
 .tool-icon svg { display: block; width: 100%; height: 100%; }
 
