@@ -1,9 +1,13 @@
 {
   "name": "README Stack",
   "short_name": "Stack",
-  "description": "Create a scrolling tech stack for a GitHub profile README.",
+  "id": "/",
+  "description": "Build an animated tech stack for your GitHub profile README.",
   "start_url": "/",
+  "scope": "/",
+  "lang": "en",
   "display": "standalone",
+  "categories": ["developer tools", "productivity", "utilities"],
   "background_color": "#0a0a0a",
   "theme_color": "#0a0a0a",
   "icons": [
