@@ -15,6 +15,7 @@ const files = [
   "README.md",
   "docs/ARCHITECTURE.md",
   "docs/COMPATIBILITY.md",
+  "docs/LOGO_USE.md",
   "docs/SECURITY.md",
   "docs/TOOL_CATALOG.md",
   "THIRD_PARTY_NOTICES.md"
@@ -48,7 +49,11 @@ if (!sitemap.includes("<loc>https://stack.rajinkhan.com/</loc>")) failures.push(
 
 JSON.parse(sourceByFile.get("public/site.webmanifest"));
 
-if (catalog.length < 280 || catalog.length > 450) failures.push(`Catalog count ${catalog.length} is outside the reviewed launch range.`);
+const catalogMeta = JSON.parse(await readFile("public/catalog-meta.json", "utf8"));
+if (catalog.length < 600) failures.push(`Catalog count ${catalog.length} is below the reviewed baseline.`);
+if (catalogMeta.count !== catalog.length) failures.push(`Catalog metadata count ${catalogMeta.count} does not match ${catalog.length} generated Tools.`);
+if (!index.includes(`${catalog.length} developer tools`)) failures.push("public/index.html does not advertise the generated catalog count.");
+if (!sourceByFile.get("README.md").includes(`${catalog.length} tools sourced`)) failures.push("README.md does not advertise the generated catalog count.");
 if (new Set(catalog.map((tool) => tool.id)).size !== catalog.length) failures.push("Catalog Tool IDs are not unique.");
 const officialLogoIds = [
   "autogen", "cloudflared1", "cloudflarer2", "grok", "openai", "powerbi", "sveltekit", "xai"

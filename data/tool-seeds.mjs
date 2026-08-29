@@ -5,7 +5,9 @@ export const toolSeeds = {
     "Erlang", "Haskell", "Lua", "R", "Julia", "Perl", "Zig", "Solidity",
     "WebAssembly", "SQL", "GNU Bash", "PowerShell", "fish shell", "Groovy", "OCaml",
     "Fortran", "Crystal", "Nim", "AssemblyScript", "Clojure", "F#", "Visual Basic",
-    "Markdown", "MDX", "LaTeX", "YAML", "JSON", "TOML", "XML", "GraphQL"
+    "Ada", "CoffeeScript", "Elm", "Gleam", "LabVIEW", "MicroPython", "Racket", "Reason",
+    "ReScript", "Scratch", "Vala", "Markdown", "MDX", "LaTeX", "Quarto", "YAML", "JSON",
+    "TOML", "XML", "GraphQL", "Common Workflow Language", "UML"
   ],
   Frontend: [
     "HTML5", "CSS", "React", "Next.js", "Vue.js", "Nuxt", "Angular", "Svelte",
@@ -18,7 +20,9 @@ export const toolSeeds = {
     "Web Components", "Redux", "Zustand", "React Query", "React Hook Form", "RxJS",
     "styled-components", "Emotion", "CSS Modules", "UnoCSS", "Chart.js", "ECharts",
     "Leaflet", "Mapbox", "Socket.io", "Turborepo", "Nx", "TanStack", "React Router", "Zod",
-    "npm", "pnpm", "Yarn"
+    "Backbone.js", "Eleventy", "Ember.js", "Gridsome", "Handlebars.js", "Lit", "Livewire",
+    "Lodash", "Marko", "MobX", "OpenZeppelin", "Pug", "React Bootstrap", "Stencil", "Stylus",
+    "WebdriverIO", "CodeMirror", "EditorConfig", "Mermaid", "npm", "pnpm", "Yarn"
   ],
   Backend: [
     "Node.js", "Deno", "Bun", "Express", "Fastify", "NestJS", "Koa", "Hono",
@@ -29,7 +33,10 @@ export const toolSeeds = {
     "OpenSearch", "gRPC", "OpenAPI Initiative", "Swagger", "OAuth", "Auth0", "Clerk",
     "Keycloak", "JSON Web Tokens", "Better Auth", "Stripe", "Lemon Squeezy", "Paddle", "Resend",
     "Twilio", "SendGrid", "Celery", "Gunicorn", "Gradle", "Apache Maven", "Payload CMS",
-    "PocketBase", "Appwrite", "Cloudinary", "Turso", "Lucia"
+    "PocketBase", "Appwrite", "Cloudinary", "Turso", "Lucia", "AdonisJS", "Apache Tomcat",
+    "CakePHP", "CodeIgniter", "Composer", "Fresh", "Hasura", "Jinja", "Joomla", "LoopBack",
+    "Meteor", "Passport", "Quarkus", "RedwoodJS", "Sanic", "Spring", "AIOHTTP", "SQLAlchemy",
+    "Sails.js", "Wagtail", "MailChimp", "Mailgun", "Mailtrap", "Nhost", "FusionAuth", "WebAuthn"
   ],
   "Data and AI": [
     "PostgreSQL", "MySQL", "MariaDB", "SQLite", "MongoDB", "Supabase", "Firebase",
@@ -44,7 +51,12 @@ export const toolSeeds = {
     "dbt", "Grafana", "Metabase", "Power BI", "Tableau", "Plotly", "Matplotlib", "Seaborn",
     "Selenium", "Ultralytics", "MLflow", "Weights & Biases", "Ray", "Streamlit", "Gradio",
     "Convex", "Upstash", "Codex", "xAI", "Grok", "Cohere", "Together AI", "Cerebras",
-    "RunPod", "LlamaIndex", "AutoGen"
+    "RunPod", "LlamaIndex", "AutoGen", "Apache CouchDB", "Apache Flink", "Apache Hadoop",
+    "Apache Hive", "Apache Superset", "ArangoDB", "Dgraph", "Fauna", "Google Colab", "Kedro",
+    "KNIME", "Looker", "Milvus", "MinIO", "OpenAI Gym", "Prefect", "Rasa", "ScyllaDB",
+    "SingleStore", "spaCy", "Trino", "Airbyte", "BentoML", "Clarifai", "DataStax", "Dataiku",
+    "H2 Database", "LM Studio", "MediaPipe", "Meta AI", "ModelScope", "Moonshot AI", "NotebookLM",
+    "Papers With Code", "RStudio IDE", "Studio 3T", "Taipy", "Teradata"
   ],
   "Cloud and DevOps": [
     "Git", "GitHub", "GitHub Copilot", "GitHub Sponsors", "GitLab", "Bitbucket", "GitHub Actions", "Docker", "Kubernetes",
@@ -57,7 +69,16 @@ export const toolSeeds = {
     "Arch Linux", "Red Hat", "CentOS", "NixOS", "Homebrew", "GNU", "Let's Encrypt",
     "Sentry", "Prometheus", "Datadog", "New Relic", "Elastic", "Logstash", "Kibana",
     "OpenTelemetry", "PagerDuty", "Uptime Kuma", "Lighthouse", "Plausible Analytics", "Umami", "PostHog",
-    "n8n", "Coolify", "ngrok", "Tailscale", "WireGuard"
+    "n8n", "Coolify", "1Panel", "Alibaba Cloud", "Backblaze", "Cilium", "Consul", "Envoy Proxy",
+    "Gitea", "Harbor", "Hetzner", "Istio", "K3s", "Kong", "Nomad", "OVH", "Pulumi", "Rancher",
+    "Renovate", "Salt Project", "Scaleway", "Serverless", "Sonatype", "Spinnaker", "Vault", "Wasabi",
+    "Akamai", "Authelia", "Authentik", "Apache CloudStack", "Cloudflare Pages", "Cloud Foundry",
+    "Cloud Native Build", "CloudBees", "Cloudsmith", "Code Climate", "Codecov", "Codefresh",
+    "Deno Deploy", "Development Containers", "Elastic Cloud", "Google Cloud Spanner",
+    "Google Cloud Storage", "Google Dataflow", "Google Dataproc", "Hostinger", "Linux Containers",
+    "Netdata", "Nextcloud", "Nginx Proxy Manager", "Octopus Deploy", "Portainer", "SonarQube Cloud",
+    "SonarQube Server", "Unraid", "UpCloud", "Yandex Cloud", "YunoHost", "containerd", "wasmCloud",
+    "ngrok", "Tailscale", "WireGuard"
   ],
   "Mobile and Desktop": [
     "Flutter", "React Native", "Expo", "Android", "Apple", "iOS", "Xcode", "Android Studio",
@@ -73,7 +94,12 @@ export const toolSeeds = {
     "Warp", "iTerm2", "Windows Terminal", "tmux", "CodePen", "StackBlitz", "CodeSandbox",
     "Replit", "Glitch", "Mintlify", "Read the Docs", "Docusaurus", "MkDocs", "WordPress",
     "Webflow", "Framer", "Shopify", "WooCommerce", "Ghost", "Contentful", "Sanity",
-    "Strapi", "Directus", "Storyblok"
+    "Strapi", "Directus", "Storyblok", "1Password", "Aegis Authenticator", "Alfred", "Arc",
+    "Beekeeper Studio", "Bitwarden", "ClickUp", "Confluence", "Eclipse IDE", "GitBook",
+    "Google Chrome", "JetBrains", "LibreOffice", "Miro", "Open Collective", "Penpot", "Raycast",
+    "Safari", "Termius", "Thunderbird", "VSCodium", "Advent Of Code", "Apifox", "CodeRabbit",
+    "CodeSignal", "Codeberg", "Codecademy", "Codewars", "DataCamp", "DatoCMS", "Decap CMS",
+    "Craft CMS", "Ghostty", "LeetCode", "OpenCode", "Zapier", "freeCodeCamp", "daily.dev"
   ]
 };
 
