@@ -1,8 +1,8 @@
-# Compatibility test plan
+# Compatibility
 
-Local rendering is verified, but GitHub does not formally guarantee animated SVG behavior in every browser. Public compatibility testing begins after the Cloudflare gate.
+Automated tests verify local rendering. The public service uses self-contained SVG because GitHub proxies remote README images through Camo and does not formally guarantee animated SVG behavior in every browser.
 
-## Permanent canary fixtures
+## Canary fixtures
 
 - Default animated dark Marquee
 - Light Marquee through a `picture` source
@@ -24,7 +24,7 @@ Local rendering is verified, but GitHub does not formally guarantee animated SVG
 - System light and dark modes
 - Reduced motion enabled and disabled
 
-## What to inspect
+## Release checks
 
 - GitHub Camo returns the correct MIME type and displays the image.
 - The animation has no visible seam over multiple loops.

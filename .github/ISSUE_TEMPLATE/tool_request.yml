@@ -1,0 +1,44 @@
+name: Tool request
+description: Suggest a Tool for the curated catalog.
+title: "[Tool]: "
+labels: [tool-request]
+body:
+  - type: markdown
+    attributes:
+      value: Read the Tool catalog policy before submitting. An official Simple Icons or Devicon mark is strongly preferred.
+  - type: input
+    id: name
+    attributes:
+      label: Tool name
+      placeholder: Astro
+    validations:
+      required: true
+  - type: input
+    id: website
+    attributes:
+      label: Official website
+      placeholder: https://astro.build
+    validations:
+      required: true
+  - type: input
+    id: icon
+    attributes:
+      label: Icon source
+      description: Link to the Simple Icons entry, Devicon entry, or official brand assets.
+      placeholder: https://simpleicons.org/?q=astro
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Add official brand guidance or naming details that may help review.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched the builder and existing issues for this Tool.
+          required: true
+        - label: I read the Tool catalog policy.
+          required: true
