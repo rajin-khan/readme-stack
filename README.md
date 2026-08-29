@@ -147,7 +147,7 @@ The part after `i=` is an ordered, comma-separated list. The hosted URL returns 
 
 ## Made for profile READMEs
 
-- 374 tools sourced from [Simple Icons](https://simpleicons.org), [Devicon](https://devicon.dev), official project assets, and reviewed neutral glyphs
+- 395 tools sourced from [Simple Icons](https://simpleicons.org), [Devicon](https://devicon.dev), official project assets, and reviewed neutral glyphs
 - Tool names on by default, so the stack stays readable beyond the logos
 - Dark, light, and transparent treatments
 - Infinite, one-pass, and static motion

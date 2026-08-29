@@ -305,7 +305,7 @@ function bindEvents() {
 
 async function init() {
   parseInitialState();
-  const response = await fetch("/catalog.json?v=0.1.1");
+  const response = await fetch("/catalog.json?v=0.1.2");
   if (!response.ok) throw new Error("The tool list could not be loaded.");
   state.catalog = await response.json();
   const known = byId();

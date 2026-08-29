@@ -1,23 +1,15 @@
 {
-  "count": 374,
+  "count": 395,
   "missing": [
-    "SvelteKit",
     "Parcel",
     "Web Components",
     "Emotion",
     "ECharts",
     "SendGrid",
-    "Pinecone",
-    "Weaviate",
-    "OpenAI",
-    "dbt",
-    "Power BI",
-    "Tableau",
     "Linode",
     "Oracle Cloud",
     "IBM Cloud",
     "Progressive Web Apps",
-    "GitHub Desktop",
-    "MkDocs"
+    "GitHub Desktop"
   ]
 }

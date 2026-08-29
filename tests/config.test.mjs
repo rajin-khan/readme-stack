@@ -43,6 +43,14 @@ test("parses reviewed custom Tools", () => {
   assert.deepEqual(result.config.tools.map((tool) => tool.name), ["Groq", "ChromaDB", "Seaborn", "SQL"]);
 });
 
+test("parses the expanded reviewed catalog", () => {
+  const ids = "pinecone,weaviate,openai,dbt,powerbi,tableau,sveltekit,mkdocs,codex,xai,grok,cohere,togetherai,cerebras,runpod,llamaindex,autogen,lovable,bolt,cloudflared1,cloudflarer2";
+  const result = parseConfiguration(`https://stack.rajinkhan.com/v1/stack.svg?i=${ids}`);
+  assert.equal(result.ok, true);
+  assert.equal(result.config.tools.length, 21);
+  assert.deepEqual(result.config.tools.slice(-2).map((tool) => tool.name), ["Cloudflare D1", "Cloudflare R2"]);
+});
+
 test("serializes only non-default options", () => {
   const result = parseConfiguration("https://stack.rajinkhan.com/v1/stack.svg?i=react,typescript&t=light&s=fast&l=off");
   assert.equal(result.ok, true);

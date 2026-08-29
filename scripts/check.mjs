@@ -46,7 +46,7 @@ if (!sitemap.includes("<loc>https://stack.rajinkhan.com/</loc>")) failures.push(
 
 JSON.parse(sourceByFile.get("public/site.webmanifest"));
 
-if (catalog.length < 280 || catalog.length > 380) failures.push(`Catalog count ${catalog.length} is outside the reviewed launch range.`);
+if (catalog.length < 280 || catalog.length > 450) failures.push(`Catalog count ${catalog.length} is outside the reviewed launch range.`);
 if (new Set(catalog.map((tool) => tool.id)).size !== catalog.length) failures.push("Catalog Tool IDs are not unique.");
 for (const tool of catalog) {
   if (!tool.id || !tool.name || !tool.category || !tool.source || !tool.provider) failures.push(`Catalog entry ${tool.id || "unknown"} is incomplete.`);

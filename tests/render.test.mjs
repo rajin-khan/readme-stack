@@ -27,6 +27,15 @@ test("renders reviewed custom Tools without remote content", () => {
   assert.doesNotMatch(result.svg, /<script|(?:href|src)=["']https?:\/\//i);
 });
 
+test("renders the expanded reviewed catalog without remote content", () => {
+  const ids = "pinecone,weaviate,openai,dbt,powerbi,tableau,sveltekit,mkdocs,codex,xai,grok,cohere,togetherai,cerebras,runpod,llamaindex,autogen,lovable,bolt,cloudflared1,cloudflarer2";
+  const result = renderStackSvg(`https://stack.rajinkhan.com/v1/stack.svg?i=${ids}&m=static`);
+  assert.equal(result.status, 200);
+  assert.match(result.svg, /Pinecone, Weaviate, OpenAI/);
+  assert.match(result.svg, /Cloudflare D1, Cloudflare R2/);
+  assert.doesNotMatch(result.svg, /<script|(?:href|src)=["']https?:\/\//i);
+});
+
 test("renders a 100-Tool Stack with a multi-row static fallback", () => {
   const ids = catalog.slice(0, 100).map((tool) => tool.id).join(",");
   const result = renderStackSvg(`https://stack.rajinkhan.com/v1/stack.svg?i=${ids}`);

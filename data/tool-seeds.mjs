@@ -9,7 +9,7 @@ export const toolSeeds = {
   ],
   Frontend: [
     "HTML5", "CSS", "React", "Next.js", "Vue.js", "Nuxt", "Angular", "Svelte",
-    "SvelteKit", "Astro", "Solid", "Qwik", "Preact", "htmx", "Alpine.js", "Remix", "v0",
+    "SvelteKit", "Astro", "Solid", "Qwik", "Preact", "htmx", "Alpine.js", "Remix", "v0", "Lovable", "Bolt",
     "Gatsby", "Vite", "webpack", "Rollup.js", "Parcel", "esbuild", "Babel", "SWC",
     "Biome", "ESLint", "Prettier", "Tailwind CSS", "Sass", "Less", "PostCSS",
     "Bootstrap", "Bulma", "Chakra UI", "MUI", "Radix UI", "shadcn/ui", "Ant Design",
@@ -43,13 +43,15 @@ export const toolSeeds = {
     "OpenAI", "Anthropic", "Google Gemini", "Kaggle", "Apache Spark", "Apache Airflow",
     "dbt", "Grafana", "Metabase", "Power BI", "Tableau", "Plotly", "Matplotlib", "Seaborn",
     "Selenium", "Ultralytics", "MLflow", "Weights & Biases", "Ray", "Streamlit", "Gradio",
-    "Convex", "Upstash"
+    "Convex", "Upstash", "Codex", "xAI", "Grok", "Cohere", "Together AI", "Cerebras",
+    "RunPod", "LlamaIndex", "AutoGen"
   ],
   "Cloud and DevOps": [
     "Git", "GitHub", "GitLab", "Bitbucket", "GitHub Actions", "Docker", "Kubernetes",
     "Helm", "Terraform", "OpenTofu", "Ansible", "Puppet", "Chef", "Jenkins", "CircleCI",
     "Travis CI", "Argo", "Flux", "AWS", "Google Cloud", "Microsoft Azure", "Cloudflare",
     "Vercel", "Netlify", "Railway", "Render", "Fly.io", "DigitalOcean", "Heroku", "Cloudflare Workers",
+    "Cloudflare D1", "Cloudflare R2",
     "Linode", "Vultr", "Oracle Cloud", "IBM Cloud", "OpenStack", "Proxmox", "VMware",
     "VirtualBox", "Vagrant", "Linux", "Ubuntu", "Debian", "Fedora", "Alpine Linux",
     "Arch Linux", "Red Hat", "CentOS", "NixOS", "Homebrew", "GNU", "Let's Encrypt",
