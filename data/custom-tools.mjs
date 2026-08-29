@@ -12,7 +12,7 @@ export const customTools = Object.freeze([
     name: "Groq",
     hex: "F55036",
     viewBox: "0 0 24 24",
-    body: '<rect x="2" y="2" width="20" height="20" rx="5" fill="#F55036"/><path d="m13.5 4-7 9h4l-1 7 8-10h-4l0-6Z" fill="#111315"/>',
+    body: '<rect x="2" y="2" width="20" height="20" rx="5" fill="#F55036"/><g transform="translate(24 0) scale(-1 1)"><path d="m13.5 4-7 9h4l-1 7 8-10h-4l0-6Z" fill="#111315"/></g>',
     source: "https://groq.com/trademark-policy",
     provider: "README Stack neutral glyph",
     aliases: ["groq", "groqcloud"]
