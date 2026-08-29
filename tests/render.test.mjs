@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { catalog } from "../src/generated/catalog.js";
 import { renderStackSvg } from "../src/render.js";
 
 test("renders a self-contained animated SVG", () => {
@@ -17,6 +18,16 @@ test("renders every selected Tool in the reduced-motion strip", () => {
   assert.equal(result.status, 200);
   assert.match(result.svg, /id="static-strip"/);
   assert.equal(result.config.tools.length, 4);
+});
+
+test("renders a 100-Tool Stack with a multi-row static fallback", () => {
+  const ids = catalog.slice(0, 100).map((tool) => tool.id).join(",");
+  const result = renderStackSvg(`https://stack.rajinkhan.com/v1/stack.svg?i=${ids}`);
+  assert.equal(result.status, 200);
+  assert.equal(result.config.tools.length, 100);
+  assert.match(result.svg, /id="static-strip"/);
+  assert.match(result.svg, /<symbol id="tool-typescript"/);
+  assert.match(result.svg, /<use href="#tool-typescript"/);
 });
 
 test("renders static mode without animation", () => {

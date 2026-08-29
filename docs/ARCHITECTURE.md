@@ -28,9 +28,9 @@ Cloudflare serves the Builder, fonts, and Tool Catalog as static assets. Only `/
 - Pure request-to-SVG function
 - No account state, cookies, database, KV, R2, or remote fetches
 - Allowlisted Tool IDs and enum-only presentation values
-- Maximum 24 Tools and 2,048-character input URL
+- Maximum 100 Tools and 8,192-character input URL
 - SVG path data bundled at build time
-- Output below the project's 200 KB ceiling
+- Output size bounded by the Tool and URL limits
 - One-year immutable caching for successful responses
 - No caching for invalid configurations
 - Explicit `image/svg+xml` and `nosniff` headers

@@ -2,9 +2,9 @@ import { catalog } from "./generated/catalog.js";
 
 export const LIMITS = Object.freeze({
   minTools: 2,
-  maxTools: 24,
-  warningTools: 16,
-  maxUrlLength: 2048,
+  maxTools: 100,
+  warningTools: 50,
+  maxUrlLength: 8192,
   width: 960
 });
 

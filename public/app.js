@@ -1,6 +1,6 @@
 const PRODUCTION_ORIGIN = "https://stack.rajinkhan.com";
 const DEFAULT_IDS = ["typescript", "react", "nextdotjs", "tailwindcss", "nodedotjs", "python", "fastapi", "postgresql", "supabase", "docker", "git", "github"];
-const LIMITS = { min: 2, max: 24, warning: 16 };
+const LIMITS = { min: 2, max: 100, warning: 50 };
 const presets = {
   Frontend: ["typescript", "react", "nextdotjs", "tailwindcss", "vite", "vercel", "figma"],
   Backend: ["nodedotjs", "fastify", "postgresql", "redis", "docker", "openapiinitiative", "nginx"],

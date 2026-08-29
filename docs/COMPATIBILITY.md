@@ -10,7 +10,7 @@ Automated tests verify local rendering. The public service uses self-contained S
 - Static Motion Mode
 - One-pass Motion Mode
 - Two-Tool short Stack
-- 24-Tool maximum Stack
+- 100-Tool maximum Stack
 - Names hidden
 - Reduced-motion static presentation
 - Invalid Tool error tile

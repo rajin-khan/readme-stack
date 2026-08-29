@@ -59,6 +59,6 @@ Rajin approves the final name and makes the repository public. Codex prepares la
 
 ## Version-one boundary
 
-Version one includes manual selection, roughly 300 Tools, six presets, 2-24 Tool Stacks, controlled visual options, animated and static SVG, a linked Builder configuration, and MIT-licensed self-hosting.
+Version one includes manual selection, roughly 300 Tools, six presets, 2-100 Tool Stacks, controlled visual options, animated and static SVG, a linked Builder configuration, and MIT-licensed self-hosting.
 
 It excludes accounts, a database, repository scanning, package-file imports, arbitrary uploads, arbitrary SVG or image URLs, custom CSS, annotations, a theme marketplace, live GitHub API data, and on-demand GIF generation.

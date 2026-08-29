@@ -155,7 +155,7 @@ The part after `i=` is an ordered, comma-separated list. The hosted URL returns 
 - Shareable builder URLs and immutable versioned image URLs
 - Self-contained SVG output with no third-party requests at render time
 
-Stacks can contain 2 to 24 tools. Duplicate IDs are removed, invalid input returns a readable SVG error, and the service does not inspect GitHub accounts or repositories.
+Stacks can contain 2 to 100 tools. Duplicate IDs are removed, invalid input returns a readable SVG error, and the service does not inspect GitHub accounts or repositories.
 
 ## Match GitHub's theme
 
@@ -183,7 +183,7 @@ https://stack.rajinkhan.com/v1/stack.svg?i=typescript,react,nextdotjs&s=slow&d=r
 
 | Parameter | Controls | Accepted values | Default |
 | --- | --- | --- | --- |
-| `i` | Ordered tool IDs | 2 to 24 comma-separated IDs | README Stack default |
+| `i` | Ordered tool IDs | 2 to 100 comma-separated IDs | README Stack default |
 | `t` | Treatment | `dark`, `light`, `transparent` | `dark` |
 | `s` | Speed | `slow`, `normal`, `fast` | `normal` |
 | `d` | Direction | `left`, `right` | `left` |

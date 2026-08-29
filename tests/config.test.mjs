@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { DEFAULT_TOOL_IDS, parseConfiguration, serializeConfiguration } from "../src/config.js";
+import { catalog } from "../src/generated/catalog.js";
+import { DEFAULT_TOOL_IDS, LIMITS, parseConfiguration, serializeConfiguration } from "../src/config.js";
 
 test("parses the default Stack", () => {
   const result = parseConfiguration("https://stack.rajinkhan.com/v1/stack.svg");
@@ -25,6 +26,15 @@ test("rejects a one-Tool Stack", () => {
   const result = parseConfiguration("https://stack.rajinkhan.com/v1/stack.svg?i=react");
   assert.equal(result.ok, false);
   assert.match(result.error, /at least 2/);
+});
+
+test("accepts 100 Tools and rejects 101", () => {
+  const maximum = catalog.slice(0, LIMITS.maxTools).map((tool) => tool.id).join(",");
+  const overMaximum = catalog.slice(0, LIMITS.maxTools + 1).map((tool) => tool.id).join(",");
+  assert.equal(parseConfiguration(`https://stack.rajinkhan.com/v1/stack.svg?i=${maximum}`).ok, true);
+  const rejected = parseConfiguration(`https://stack.rajinkhan.com/v1/stack.svg?i=${overMaximum}`);
+  assert.equal(rejected.ok, false);
+  assert.match(rejected.error, /no more than 100/);
 });
 
 test("serializes only non-default options", () => {

@@ -28,7 +28,10 @@ const simpleIconColor = (tool, treatment) => {
   return hex;
 };
 
-function iconMarkup(tool, x, y, size, treatment) {
+function iconMarkup(tool, x, y, size, treatment, useDefinitions = false) {
+  if (useDefinitions) {
+    return `<use href="#tool-${xml(tool.id)}" x="${x}" y="${y}" width="${size}" height="${size}"/>`;
+  }
   if (tool.path) {
     const scale = size / 24;
     return `<g transform="translate(${x} ${y}) scale(${scale})"><path fill="${simpleIconColor(tool, treatment)}" d="${tool.path}"/></g>`;
@@ -41,6 +44,16 @@ function iconMarkup(tool, x, y, size, treatment) {
   return `<g transform="translate(${offsetX} ${offsetY}) scale(${scale})">${tool.body}</g>`;
 }
 
+function iconDefinitions(tools, treatment) {
+  return tools.map((tool) => {
+    const viewBox = tool.path ? "0 0 24 24" : String(tool.viewBox || "0 0 128 128");
+    const body = tool.path
+      ? `<path fill="${simpleIconColor(tool, treatment)}" d="${tool.path}"/>`
+      : tool.body;
+    return `<symbol id="tool-${xml(tool.id)}" viewBox="${xml(viewBox)}">${body}</symbol>`;
+  }).join("");
+}
+
 function measureItem(tool, config, iconSize) {
   const gap = config.spacing === "compact" ? 12 : 18;
   const outer = config.spacing === "compact" ? 18 : 28;
@@ -48,13 +61,13 @@ function measureItem(tool, config, iconSize) {
   return { gap, outer, width: iconSize + labelWidth + (labelWidth ? gap : 0) + outer };
 }
 
-function trackMarkup(sequence, config, theme, iconSize, y) {
+function trackMarkup(sequence, config, theme, iconSize, y, useDefinitions = false) {
   let cursor = 0;
   const items = [];
   for (const tool of sequence) {
     const measure = measureItem(tool, config, iconSize);
     const iconY = y - iconSize / 2;
-    items.push(iconMarkup(tool, cursor, iconY, iconSize, config.treatment));
+    items.push(iconMarkup(tool, cursor, iconY, iconSize, config.treatment, useDefinitions));
     if (config.labels === "on") {
       const fontSize = iconSize === 40 ? 17 : 15;
       items.push(`<text x="${cursor + iconSize + measure.gap}" y="${y + fontSize * 0.34}" fill="${theme.foreground}" font-family="ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="${fontSize}" font-weight="650" letter-spacing="-0.2">${xml(tool.name)}</text>`);
@@ -64,13 +77,25 @@ function trackMarkup(sequence, config, theme, iconSize, y) {
   return { width: cursor, markup: `<g>${items.join("")}</g>` };
 }
 
-function staticStrip(config, width, height, theme) {
+function staticStrip(config, width, height, theme, useDefinitions = false) {
   const count = config.tools.length;
-  const size = Math.max(18, Math.min(config.size === "large" ? 34 : 28, Math.floor((width - 64) / count - 8)));
+  const columns = Math.min(25, count);
+  const rows = Math.ceil(count / columns);
   const usable = width - 64;
-  const step = usable / count;
-  const y = height / 2 - size / 2;
-  const icons = config.tools.map((tool, index) => iconMarkup(tool, 32 + index * step + (step - size) / 2, y, size, config.treatment));
+  const stepX = usable / columns;
+  const stepY = (height - 12) / rows;
+  const size = Math.max(12, Math.min(
+    config.size === "large" ? 34 : 28,
+    Math.floor(stepX - 8),
+    Math.floor(stepY - 4)
+  ));
+  const icons = config.tools.map((tool, index) => {
+    const column = index % columns;
+    const row = Math.floor(index / columns);
+    const x = 32 + column * stepX + (stepX - size) / 2;
+    const y = 6 + row * stepY + (stepY - size) / 2;
+    return iconMarkup(tool, x, y, size, config.treatment, useDefinitions);
+  });
   return `<g id="static-strip" aria-hidden="true">${icons.join("")}</g>`;
 }
 
@@ -92,10 +117,11 @@ export function renderStackSvg(input) {
   const iconSize = config.size === "large" ? 40 : 32;
   const theme = THEMES[config.treatment];
   const y = height / 2;
-  const baseTrack = trackMarkup(config.tools, config, theme, iconSize, y);
+  const useDefinitions = config.tools.length > 24;
+  const baseTrack = trackMarkup(config.tools, config, theme, iconSize, y, useDefinitions);
   const repeatCount = Math.max(1, Math.ceil((width + 120) / baseTrack.width));
   const sequence = Array.from({ length: repeatCount }, () => config.tools).flat();
-  const track = trackMarkup(sequence, config, theme, iconSize, y);
+  const track = trackMarkup(sequence, config, theme, iconSize, y, useDefinitions);
   const duration = Math.max(6, track.width / SPEEDS[config.speed]);
   const from = config.direction === "left" ? "0 0" : `${-track.width} 0`;
   const to = config.direction === "left" ? `${-track.width} 0` : "0 0";
@@ -109,6 +135,7 @@ export function renderStackSvg(input) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${xml(title)}">
   <title>${xml(title)}</title>
   <defs>
+    ${useDefinitions ? iconDefinitions(config.tools, config.treatment) : ""}
     <linearGradient id="edge-fade" x1="0" x2="1">
       <stop offset="0" stop-color="white" stop-opacity="0"/>
       <stop offset="0.075" stop-color="white"/>
@@ -126,7 +153,7 @@ export function renderStackSvg(input) {
   ${background}
   <g clip-path="url(#viewport)" mask="url(#viewport-fade)">
     <g id="moving-track">${track.markup}<g transform="translate(${track.width} 0)">${track.markup}</g>${animation}</g>
-    ${staticStrip(config, width, height, theme)}
+    ${staticStrip(config, width, height, theme, useDefinitions)}
   </g>
 </svg>`;
 
