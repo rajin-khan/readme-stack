@@ -117,10 +117,10 @@ Every presentation control lives in the URL. These examples use the same six Too
       </a>
     </td>
     <td align="center">
-      <strong>Static</strong><br>
-      <code>m=static</code><br><br>
-      <a href="https://stack.rajinkhan.com/?i=typescript,react,nextdotjs,tailwindcss,cloudflare,github&amp;m=static">
-        <img width="420" alt="Static Stack" src="https://stack.rajinkhan.com/v1/stack.svg?i=typescript,react,nextdotjs,tailwindcss,cloudflare,github&amp;t=light&amp;m=static">
+      <strong>Static, small Tools</strong><br>
+      <code>m=static&amp;z=small</code><br><br>
+      <a href="https://stack.rajinkhan.com/?i=typescript,react,nextdotjs,tailwindcss,cloudflare,github&amp;m=static&amp;z=small">
+        <img width="420" alt="Static Stack with small Tools" src="https://stack.rajinkhan.com/v1/stack.svg?i=typescript,react,nextdotjs,tailwindcss,cloudflare,github&amp;t=light&amp;m=static&amp;z=small">
       </a>
     </td>
   </tr>
