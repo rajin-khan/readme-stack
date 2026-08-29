@@ -142,9 +142,9 @@ export const customTools = Object.freeze([
     name: "xAI",
     hex: "111111",
     viewBox: "0 0 24 24",
-    body: neutralBadge("xAI", "#111111"),
-    source: "https://x.ai/",
-    provider: "README Stack neutral glyph",
+    body: officialLogo("xai"),
+    source: "https://x.ai/legal/brand-guidelines",
+    provider: "xAI official brand asset",
     aliases: ["xai", "x ai"]
   },
   {
@@ -152,9 +152,9 @@ export const customTools = Object.freeze([
     name: "Grok",
     hex: "111111",
     viewBox: "0 0 24 24",
-    body: officialLogo("grok"),
-    source: "https://grok.com/images/android-chrome-192x192.png",
-    provider: "Grok official site asset",
+    body: officialLogo("grok", "#0A0A0A"),
+    source: "https://x.ai/legal/brand-guidelines",
+    provider: "xAI official Grok brand asset",
     aliases: ["grok", "grok ai"]
   },
   {

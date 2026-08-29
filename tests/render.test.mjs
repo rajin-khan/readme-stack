@@ -39,7 +39,7 @@ test("renders the expanded reviewed catalog without remote content", () => {
 test("uses reviewed official artwork instead of placeholder badges", () => {
   const ids = [
     "autogen", "bolt", "cerebras", "cloudflared1", "cloudflarer2", "codex", "cohere", "dbt", "grok", "llamaindex",
-    "lovable", "mkdocs", "openai", "pinecone", "powerbi", "runpod", "sveltekit", "tableau", "togetherai", "weaviate"
+    "lovable", "mkdocs", "openai", "pinecone", "powerbi", "runpod", "sveltekit", "tableau", "togetherai", "weaviate", "xai"
   ];
   for (const id of ids) {
     const tool = catalog.find((entry) => entry.id === id);

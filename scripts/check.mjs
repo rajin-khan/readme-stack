@@ -50,7 +50,7 @@ if (catalog.length < 280 || catalog.length > 450) failures.push(`Catalog count $
 if (new Set(catalog.map((tool) => tool.id)).size !== catalog.length) failures.push("Catalog Tool IDs are not unique.");
 const officialLogoIds = [
   "autogen", "bolt", "cerebras", "cloudflared1", "cloudflarer2", "codex", "cohere", "dbt", "grok", "llamaindex",
-  "lovable", "mkdocs", "openai", "pinecone", "powerbi", "runpod", "sveltekit", "tableau", "togetherai", "weaviate"
+  "lovable", "mkdocs", "openai", "pinecone", "powerbi", "runpod", "sveltekit", "tableau", "togetherai", "weaviate", "xai"
 ];
 for (const id of officialLogoIds) {
   const tool = catalog.find((entry) => entry.id === id);
