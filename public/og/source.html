@@ -30,59 +30,37 @@
         background: #0a0a0a;
       }
       body {
-        position: relative;
+        display: grid;
+        place-items: center;
         color: #f5f5f4;
         font-family: "Satoshi", sans-serif;
       }
-      body::before {
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(90deg, transparent 79px, #232323 80px, transparent 81px),
-          linear-gradient(90deg, transparent 1119px, #232323 1120px, transparent 1121px),
-          linear-gradient(transparent 71px, #232323 72px, transparent 73px),
-          linear-gradient(transparent 557px, #232323 558px, transparent 559px);
-        content: "";
-      }
-      .corner {
-        position: absolute;
-        top: 30px;
-        color: #8c8c8c;
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-      .corner.left { left: 80px; }
-      .corner.right { right: 80px; }
       main {
-        position: relative;
         display: flex;
-        height: 100%;
+        width: 1040px;
         flex-direction: column;
-        justify-content: center;
-        padding: 82px 80px 88px;
+        align-items: center;
+        text-align: center;
       }
       h1 {
         display: flex;
         align-items: baseline;
         gap: 28px;
-        margin: 2px 0 18px;
-        font-size: 108px;
+        margin: 0 0 20px;
+        font-size: 112px;
         font-weight: 700;
         letter-spacing: -0.07em;
         line-height: 0.9;
       }
       h1 em {
         font-family: "La Belle Aurore", cursive;
-        font-size: 99px;
+        font-size: 101px;
         font-style: normal;
         font-weight: 400;
         letter-spacing: 0;
         transform: rotate(-2deg);
       }
       .lede {
-        width: 690px;
         margin: 0;
         color: #a3a3a3;
         font-size: 28px;
@@ -90,79 +68,63 @@
       }
       .stack {
         display: flex;
-        height: 120px;
         align-items: center;
-        gap: 12px;
-        margin-top: 58px;
-        overflow: hidden;
-        border: 1px solid #303030;
-        border-radius: 12px;
-        background: #111111;
-        padding: 18px;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 68px;
       }
       .tool {
         display: flex;
-        min-width: max-content;
         align-items: center;
-        gap: 11px;
-        border-right: 1px solid #303030;
-        padding: 0 22px 0 4px;
-        font-size: 19px;
+        gap: 12px;
+        color: #d4d4d4;
+        font-size: 18px;
         font-weight: 700;
+        white-space: nowrap;
       }
-      .mark {
-        display: grid;
-        width: 48px;
-        height: 48px;
-        place-items: center;
-        border-radius: 8px;
-        color: white;
-        font-size: 16px;
-        font-weight: 700;
-        letter-spacing: -0.04em;
+      .logo {
+        display: block;
+        width: 43px;
+        height: 43px;
       }
-      .ts { background: #3178c6; }
-      .react { background: #20232a; color: #61dafb; border: 1px solid #38414a; }
-      .next { background: #f5f5f4; color: #111; }
-      .tailwind { background: #0f172a; color: #38bdf8; }
-      .cloudflare { background: #f38020; }
-      .github { background: #f5f5f4; color: #111; }
-      .dot {
-        position: absolute;
-        right: 80px;
-        top: 91px;
-        width: 12px;
-        height: 12px;
-        border-radius: 999px;
-        background: #ef765a;
-        box-shadow: 0 0 0 7px rgb(239 118 90 / 0.12);
-      }
+      .logo path { fill: var(--brand); }
+      .next path, .github path { fill: #f5f5f4; }
       .url {
-        position: absolute;
-        right: 80px;
-        bottom: 32px;
-        color: #8c8c8c;
+        margin-top: 62px;
+        color: #737373;
         font-size: 16px;
         font-weight: 700;
+        letter-spacing: 0.02em;
       }
     </style>
   </head>
   <body>
-    <span class="corner left">GitHub profile tool</span>
-    <span class="corner right">345 tools · SVG</span>
-    <span class="dot"></span>
     <main>
       <h1><span>README</span><em>Stack</em></h1>
       <p class="lede">Build an animated tech stack for your GitHub profile.</p>
       <div class="stack" aria-label="Example developer Tool Stack">
-        <div class="tool"><span class="mark ts">TS</span>TypeScript</div>
-        <div class="tool"><span class="mark react">⚛</span>React</div>
-        <div class="tool"><span class="mark next">N</span>Next.js</div>
-        <div class="tool"><span class="mark tailwind">TW</span>Tailwind</div>
-        <div class="tool"><span class="mark cloudflare">CF</span>Cloudflare</div>
-        <div class="tool"><span class="mark github">GH</span>GitHub</div>
+        <div class="tool">
+          <svg class="logo" style="--brand:#3178c6" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg>
+          TypeScript
+        </div>
+        <div class="tool">
+          <svg class="logo" style="--brand:#61dafb" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09c.225 0 .406.044.558.133.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.104-2.296zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm6.688.929c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm12.627 7.287c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438z"/></svg>
+          React
+        </div>
+        <div class="tool">
+          <svg class="logo next" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"/></svg>
+          Next.js
+        </div>
+        <div class="tool">
+          <svg class="logo" style="--brand:#06b6d4" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zM6.001 12c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg>
+          Tailwind
+        </div>
+        <div class="tool">
+          <svg class="logo" style="--brand:#f38020" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.509 16.845c.147-.507.09-.971-.156-1.316-.225-.316-.604-.499-1.061-.52l-8.66-.112a.156.156 0 0 1-.133-.072c-.028-.042-.035-.098-.021-.155.028-.084.112-.148.204-.156l8.736-.112c1.035-.049 2.16-.887 2.554-1.914l.499-1.301c.021-.056.029-.113.014-.168-.562-2.546-2.835-4.445-5.55-4.445-2.503 0-4.628 1.617-5.387 3.86-.493-.365-1.119-.562-1.794-.499-1.203.119-2.167 1.083-2.286 2.286-.028.31-.007.613.063.894C1.568 13.171 0 14.775 0 16.752c0 .175.014.352.035.527.014.083.085.148.17.148h15.98c.091 0 .176-.065.204-.156l.12-.426zm2.757-5.564c-.077 0-.161 0-.239.011-.056 0-.105.042-.127.098l-.338 1.174c-.147.507-.091.971.155 1.317.225.316.605.498 1.062.52l1.844.112c.056 0 .105.027.133.071.028.043.035.107.021.156-.028.084-.113.148-.204.155l-1.921.112c-1.041.049-2.158.887-2.552 1.914l-.141.358c-.028.072.022.142.099.142h6.597c.078 0 .148-.049.17-.126.112-.408.175-.837.175-1.28 0-2.603-2.125-4.727-4.734-4.727"/></svg>
+          Cloudflare
+        </div>
       </div>
+      <span class="url">stack.rajinkhan.com</span>
     </main>
-    <span class="url">stack.rajinkhan.com</span>
   </body>
 </html>
