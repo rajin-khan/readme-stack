@@ -16,7 +16,8 @@ const files = [
   "docs/ARCHITECTURE.md",
   "docs/COMPATIBILITY.md",
   "docs/SECURITY.md",
-  "docs/TOOL_CATALOG.md"
+  "docs/TOOL_CATALOG.md",
+  "THIRD_PARTY_NOTICES.md"
 ];
 const failures = [];
 const sourceByFile = new Map();
@@ -37,6 +38,7 @@ for (const required of [
 ]) {
   if (!index.includes(required)) failures.push(`public/index.html is missing SEO markup: ${required}`);
 }
+if (!index.includes("Third-party names and marks belong to their owners")) failures.push("public/index.html is missing the public trademark notice.");
 
 const robots = sourceByFile.get("public/robots.txt");
 if (!robots.includes("https://stack.rajinkhan.com/sitemap.xml")) failures.push("robots.txt does not advertise the sitemap.");
@@ -49,8 +51,7 @@ JSON.parse(sourceByFile.get("public/site.webmanifest"));
 if (catalog.length < 280 || catalog.length > 450) failures.push(`Catalog count ${catalog.length} is outside the reviewed launch range.`);
 if (new Set(catalog.map((tool) => tool.id)).size !== catalog.length) failures.push("Catalog Tool IDs are not unique.");
 const officialLogoIds = [
-  "autogen", "bolt", "cerebras", "cloudflared1", "cloudflarer2", "codex", "cohere", "dbt", "grok", "llamaindex",
-  "lovable", "mkdocs", "openai", "pinecone", "powerbi", "runpod", "sveltekit", "tableau", "togetherai", "weaviate", "xai"
+  "autogen", "cloudflared1", "cloudflarer2", "grok", "openai", "powerbi", "sveltekit", "xai"
 ];
 for (const id of officialLogoIds) {
   const tool = catalog.find((entry) => entry.id === id);
@@ -61,6 +62,12 @@ for (const id of officialLogoIds) {
 for (const tool of catalog) {
   if (!tool.id || !tool.name || !tool.category || !tool.source || !tool.provider) failures.push(`Catalog entry ${tool.id || "unknown"} is incomplete.`);
   if (!tool.path && !tool.body) failures.push(`Catalog entry ${tool.id} has no renderable mark.`);
+  if (!tool.rights?.status || !tool.rights?.license || !tool.rights?.notice) failures.push(`Catalog entry ${tool.id} has no complete rights record.`);
+  if (!new Set(["licensed", "brand-guidelines", "catalog-source", "neutral"]).has(tool.rights?.status)) failures.push(`Catalog entry ${tool.id} has an unknown rights status.`);
+}
+
+for (const required of ["Third-party names and marks", "Groq is a trademark", "Simple Icons", "Devicon", "Power BI", "AutoGen", "Cloudflare D1", "Chroma"]) {
+  if (!sourceByFile.get("THIRD_PARTY_NOTICES.md").includes(required)) failures.push(`THIRD_PARTY_NOTICES.md is missing ${required}.`);
 }
 
 if (failures.length) {

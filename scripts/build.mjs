@@ -2,6 +2,7 @@ import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import * as simpleIcons from "simple-icons";
 import { customTools } from "../data/custom-tools.mjs";
 import { featuredOrder, toolSeeds } from "../data/tool-seeds.mjs";
+import { rightsFor } from "../data/tool-rights.mjs";
 
 const normalize = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, "");
 const icons = Object.values(simpleIcons).filter((icon) => icon?.slug && icon?.path);
@@ -147,6 +148,14 @@ catalog.sort((a, b) => {
   if (ai !== -1 || bi !== -1) return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
   return a.name.localeCompare(b.name);
 });
+
+for (let index = 0; index < catalog.length; index += 1) {
+  const tool = catalog[index];
+  const rights = rightsFor(tool);
+  if (!rights) throw new Error(`Catalog Tool ${tool.id} has no reviewed rights record.`);
+  const { render, ...publicRights } = rights;
+  catalog[index] = { ...tool, ...(render ?? {}), rights: publicRights };
+}
 
 if (catalog.length < 280) {
   throw new Error(`Catalog has ${catalog.length} Tools. At least 280 are required. Missing: ${missing.join(", ")}`);

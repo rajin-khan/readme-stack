@@ -224,6 +224,7 @@ The Wrangler dry run does not contact or change a Cloudflare account.
 
 - [Contributing](./CONTRIBUTING.md) explains the local workflow and pull request checks.
 - [Tool catalog policy](./docs/TOOL_CATALOG.md) covers logo sources, additions, and corrections.
+- [Third-party notices](./THIRD_PARTY_NOTICES.md) records catalog licenses, attributions, and trademark sources.
 - [Compatibility](./docs/COMPATIBILITY.md) records supported GitHub and browser behavior.
 - [Architecture](./docs/ARCHITECTURE.md) describes the builder, renderer, and generated catalog.
 - [Security model](./docs/SECURITY.md) documents the public renderer's input boundary.
@@ -231,4 +232,4 @@ The Wrangler dry run does not contact or change a Cloudflare account.
 
 ## License and trademarks
 
-README Stack is available under the [MIT License](./LICENSE). Simple Icons data is distributed under CC0-1.0 and Devicon under MIT. The checked-in Chroma asset comes from Chroma's Apache-2.0 repository. Neutral glyphs are part of README Stack. Product names and logos belong to their owners. Inclusion does not imply endorsement.
+README Stack is available under the [MIT License](./LICENSE). Third-party names and marks belong to their owners and only identify the corresponding tools. Their inclusion does not imply affiliation, sponsorship, or endorsement. Package licenses do not grant trademark rights. See the [third-party notices](./THIRD_PARTY_NOTICES.md) for sources, licenses, attributions, and correction requests.

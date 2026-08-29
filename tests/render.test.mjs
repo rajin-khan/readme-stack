@@ -38,14 +38,22 @@ test("renders the expanded reviewed catalog without remote content", () => {
 
 test("uses reviewed official artwork instead of placeholder badges", () => {
   const ids = [
-    "autogen", "bolt", "cerebras", "cloudflared1", "cloudflarer2", "codex", "cohere", "dbt", "grok", "llamaindex",
-    "lovable", "mkdocs", "openai", "pinecone", "powerbi", "runpod", "sveltekit", "tableau", "togetherai", "weaviate", "xai"
+    "autogen", "cloudflared1", "cloudflarer2", "grok", "openai", "powerbi", "sveltekit", "xai"
   ];
   for (const id of ids) {
     const tool = catalog.find((entry) => entry.id === id);
     assert.ok(tool, `${id} is in the catalog`);
     assert.notEqual(tool.provider, "README Stack neutral glyph");
     assert.match(tool.body, /data:image\/(?:png|svg\+xml);base64,/);
+  }
+});
+
+test("uses neutral artwork when an official mark is not cleared for redistribution", () => {
+  for (const id of ["apple", "bolt", "cerebras", "codex", "cohere", "dbt", "groq", "llamaindex", "lovable", "mkdocs", "pinecone", "runpod", "seaborn", "sql", "tableau", "togetherai", "weaviate"]) {
+    const tool = catalog.find((entry) => entry.id === id);
+    assert.ok(tool, `${id} is in the catalog`);
+    assert.equal(tool.rights.status, "neutral");
+    assert.doesNotMatch(tool.body ?? "", /data:image\/(?:png|svg\+xml);base64,/);
   }
 });
 

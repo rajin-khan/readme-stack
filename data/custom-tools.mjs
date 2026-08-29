@@ -12,8 +12,8 @@ export const customTools = Object.freeze([
     name: "Groq",
     hex: "F55036",
     viewBox: "0 0 24 24",
-    body: '<rect x="2" y="2" width="20" height="20" rx="5" fill="#F55036"/><path d="M8 8h5.4a3.6 3.6 0 1 1 0 7.2H11V18H8V8Zm3 2.7v1.8h2.2a.9.9 0 1 0 0-1.8H11Z" fill="#111315"/>',
-    source: "https://groq.com/brand/Groq%20Trademark%20Policy%2024.pdf",
+    body: '<rect x="2" y="2" width="20" height="20" rx="5" fill="#F55036"/><path d="m13.5 4-7 9h4l-1 7 8-10h-4l0-6Z" fill="#111315"/>',
+    source: "https://groq.com/trademark-policy",
     provider: "README Stack neutral glyph",
     aliases: ["groq", "groqcloud"]
   },
@@ -130,11 +130,11 @@ export const customTools = Object.freeze([
   {
     id: "codex",
     name: "Codex",
-    hex: "10A37F",
+    hex: "111111",
     viewBox: "0 0 24 24",
-    body: officialLogo("codex"),
+    body: neutralBadge("CX", "#111111"),
     source: "https://openai.com/codex/",
-    provider: "OpenAI Codex app icon",
+    provider: "README Stack neutral glyph",
     aliases: ["codex", "openai codex"]
   },
   {

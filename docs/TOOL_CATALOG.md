@@ -25,6 +25,11 @@ Every generated Tool must have:
 - Source URL
 - Provider and version
 - Brand color when the source supplies one
+- Rights status: `licensed`, `brand-guidelines`, `catalog-source`, or `neutral`
+- License or use basis
+- Public notice or policy URL
+
+The build adds this record to every generated entry. `pnpm check` fails if any Tool has missing or unknown rights metadata. `catalog-source` means README Stack received the artwork through a pinned icon package. It does not mean the package granted trademark rights.
 
 ## Adding a Tool
 
@@ -34,9 +39,13 @@ Every generated Tool must have:
 4. Confirm it is not listed in `public/catalog-meta.json` under `missing`.
 5. Inspect the Tool in dark, light, and transparent Treatments.
 6. Verify the source's trademark or brand guidance.
-7. Run `pnpm check` and `pnpm test`.
+7. Add an explicit rights record to `data/tool-rights.mjs` when the provider defaults do not describe the asset accurately.
+8. Add required attribution to `THIRD_PARTY_NOTICES.md`.
+9. Run `pnpm check` and `pnpm test`.
 
 Do not accept arbitrary SVG uploads, arbitrary remote logo URLs, scraped marks with unknown provenance, or a mark whose brand owner prohibits the intended use.
+
+Official source does not mean free to redistribute. If the source terms are unclear, use an original neutral glyph or leave the Tool out until the owner gives permission.
 
 ## Removal and correction
 
