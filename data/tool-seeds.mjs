@@ -6,8 +6,9 @@ export const toolSeeds = {
     "WebAssembly", "SQL", "GNU Bash", "PowerShell", "fish shell", "Groovy", "OCaml",
     "Fortran", "Crystal", "Nim", "AssemblyScript", "Clojure", "F#", "Visual Basic",
     "Ada", "CoffeeScript", "Elm", "Gleam", "LabVIEW", "MicroPython", "Racket", "Reason",
-    "ReScript", "Scratch", "Vala", "Markdown", "MDX", "LaTeX", "Quarto", "YAML", "JSON",
-    "TOML", "XML", "GraphQL", "Common Workflow Language", "UML"
+    "ReScript", "Scratch", "Vala", "Delphi", "Processing Foundation", "V", "Wolfram",
+    "Markdown", "MDX", "LaTeX", "Quarto", "YAML", "JSON", "TOML", "XML", "GraphQL",
+    "Common Workflow Language", "UML"
   ],
   Frontend: [
     "HTML5", "CSS", "React", "Next.js", "Vue.js", "Nuxt", "Angular", "Svelte",
@@ -22,7 +23,9 @@ export const toolSeeds = {
     "Leaflet", "Mapbox", "Socket.io", "Turborepo", "Nx", "TanStack", "React Router", "Zod",
     "Backbone.js", "Eleventy", "Ember.js", "Gridsome", "Handlebars.js", "Lit", "Livewire",
     "Lodash", "Marko", "MobX", "OpenZeppelin", "Pug", "React Bootstrap", "Stencil", "Stylus",
-    "WebdriverIO", "CodeMirror", "EditorConfig", "Mermaid", "npm", "pnpm", "Yarn"
+    "WebdriverIO", "CodeMirror", "EditorConfig", "Mermaid", "A-Frame", "Aurelia", "Hugo",
+    "Jekyll", "Material Design", "Material Design Icons", "Polymer Project", "Proto.io",
+    "Semantic UI React", "Stimulus", "Turbo", "UIKit", "npm", "pnpm", "Yarn"
   ],
   Backend: [
     "Node.js", "Deno", "Bun", "Express", "Fastify", "NestJS", "Koa", "Hono",
@@ -36,7 +39,9 @@ export const toolSeeds = {
     "PocketBase", "Appwrite", "Cloudinary", "Turso", "Lucia", "AdonisJS", "Apache Tomcat",
     "CakePHP", "CodeIgniter", "Composer", "Fresh", "Hasura", "Jinja", "Joomla", "LoopBack",
     "Meteor", "Passport", "Quarkus", "RedwoodJS", "Sanic", "Spring", "AIOHTTP", "SQLAlchemy",
-    "Sails.js", "Wagtail", "MailChimp", "Mailgun", "Mailtrap", "Nhost", "FusionAuth", "WebAuthn"
+    "Sails.js", "Wagtail", "MailChimp", "Mailgun", "Mailtrap", "Nhost", "FusionAuth", "WebAuthn",
+    "Actix", "Apache Groovy", "Dapr", "Gatling", "Ktor", "Liquibase", "Moleculer", "NuGet",
+    "pipx", "Poetry", "RubyGems", "Temporal", "Yii", "Hoppscotch", "Scalar"
   ],
   "Data and AI": [
     "PostgreSQL", "MySQL", "MariaDB", "SQLite", "MongoDB", "Supabase", "Firebase",
@@ -56,7 +61,9 @@ export const toolSeeds = {
     "KNIME", "Looker", "Milvus", "MinIO", "OpenAI Gym", "Prefect", "Rasa", "ScyllaDB",
     "SingleStore", "spaCy", "Trino", "Airbyte", "BentoML", "Clarifai", "DataStax", "Dataiku",
     "H2 Database", "LM Studio", "MediaPipe", "Meta AI", "ModelScope", "Moonshot AI", "NotebookLM",
-    "Papers With Code", "RStudio IDE", "Studio 3T", "Taipy", "Teradata"
+    "Papers With Code", "RStudio IDE", "Studio 3T", "Taipy", "Teradata", "Apache Druid",
+    "Apache Pulsar", "Couchbase", "DVC", "ONNX", "Redash", "Bitcoin", "Ethereum", "Solana",
+    "Polygon", "Chainlink", "Alchemy", "IPFS", "BNB Chain", "Coinbase", "WalletConnect"
   ],
   "Cloud and DevOps": [
     "Git", "GitHub", "GitHub Copilot", "GitHub Sponsors", "GitLab", "Bitbucket", "GitHub Actions", "Docker", "Kubernetes",
@@ -78,12 +85,19 @@ export const toolSeeds = {
     "Google Cloud Storage", "Google Dataflow", "Google Dataproc", "Hostinger", "Linux Containers",
     "Netdata", "Nextcloud", "Nginx Proxy Manager", "Octopus Deploy", "Portainer", "SonarQube Cloud",
     "SonarQube Server", "Unraid", "UpCloud", "Yandex Cloud", "YunoHost", "containerd", "wasmCloud",
+    "Buildkite", "bunny.net", "Civo", "Drone", "Dynatrace", "Equinix Metal", "Fastly", "JFrog",
+    "Packer", "Semaphore CI", "Splunk", "Cucumber", "k6", "Robot Framework", "Sauce Labs",
+    "TestCafe", "TestRail", "Snyk", "Burp Suite", "OWASP", "Trivy", "Dependabot", "Falco",
+    "Metasploit", "Socket", "VirusTotal", "Jaeger", "Thanos", "VictoriaMetrics", "Better Stack",
     "ngrok", "Tailscale", "WireGuard"
   ],
   "Mobile and Desktop": [
     "Flutter", "React Native", "Expo", "Android", "Apple", "iOS", "Xcode", "Android Studio",
     "Ionic", "Capacitor", "Tauri", "Electron", "Qt", "Unity", "Unreal Engine", "Godot Engine",
-    "Kotlin", "Swift", "Jetpack Compose", "Xamarin", "Apache Cordova", "Progressive Web Apps"
+    "Kotlin", "Swift", "Jetpack Compose", "Xamarin", "Apache Cordova", "Progressive Web Apps",
+    "Android Auto", "App Store", "F-Droid", "Google Play", "Huawei", "KaiOS", "Arduino",
+    "Adafruit", "Espressif", "PlatformIO", "MQTT", "Raspberry Pi", "Home Assistant", "ESPHome",
+    "Tasmota", "Zigbee2MQTT", "Node-RED"
   ],
   "Design and Tools": [
     "Figma", "Sketch", "Adobe Photoshop", "Adobe Illustrator", "Adobe After Effects", "Meta",
@@ -99,7 +113,13 @@ export const toolSeeds = {
     "Google Chrome", "JetBrains", "LibreOffice", "Miro", "Open Collective", "Penpot", "Raycast",
     "Safari", "Termius", "Thunderbird", "VSCodium", "Advent Of Code", "Apifox", "CodeRabbit",
     "CodeSignal", "Codeberg", "Codecademy", "Codewars", "DataCamp", "DatoCMS", "Decap CMS",
-    "Craft CMS", "Ghostty", "LeetCode", "OpenCode", "Zapier", "freeCodeCamp", "daily.dev"
+    "Craft CMS", "Ghostty", "LeetCode", "OpenCode", "Zapier", "freeCodeCamp", "daily.dev",
+    "CMake", "GNU Emacs", "Aseprite", "Audacity", "Cinema 4D", "DaVinci Resolve", "Font Awesome",
+    "GIMP", "Inkscape", "Krita", "Lunacy", "SketchUp", "SVG", "Weblate", "Anki", "Brave",
+    "Firefox", "Gerrit", "GNU Privacy Guard", "Google Keep", "Kdenlive", "KiCad", "Mattermost",
+    "OpenVPN", "Proton VPN", "QEMU", "Syncthing", "Wireshark", "Zotero", "Gamemaker",
+    "Roblox Studio", "Construct 3", "Ren'Py", "Asciidoctor", "Docsify", "Material for MkDocs",
+    "ReadMe", "Sphinx", "VitePress", "Airtable", "Appsmith", "Budibase", "Retool", "Make", "IFTTT"
   ]
 };
 
