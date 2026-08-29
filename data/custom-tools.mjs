@@ -1,5 +1,10 @@
+import { officialToolAssets } from "./official-tool-assets.mjs";
+
 const neutralBadge = (label, background, foreground = "#F2F1EC") =>
   `<rect x="2" y="2" width="20" height="20" rx="5" fill="${background}"/><text x="12" y="14.4" text-anchor="middle" fill="${foreground}" font-family="ui-sans-serif,system-ui,sans-serif" font-size="${label.length > 2 ? "5.5" : "7"}" font-weight="800">${label}</text>`;
+
+const officialLogo = (id, background) =>
+  `${background ? `<rect width="24" height="24" rx="5" fill="${background}"/>` : ""}<image href="${officialToolAssets[id]}" width="24" height="24" preserveAspectRatio="xMidYMid meet"/>`;
 
 export const customTools = Object.freeze([
   {
@@ -47,9 +52,9 @@ export const customTools = Object.freeze([
     name: "Pinecone",
     hex: "111111",
     viewBox: "0 0 24 24",
-    body: neutralBadge("PC", "#111111"),
+    body: officialLogo("pinecone"),
     source: "https://www.pinecone.io/",
-    provider: "README Stack neutral glyph",
+    provider: "Pinecone official site asset",
     aliases: ["pinecone", "pinecone db", "pinecone database"]
   },
   {
@@ -57,9 +62,9 @@ export const customTools = Object.freeze([
     name: "Weaviate",
     hex: "00B977",
     viewBox: "0 0 24 24",
-    body: neutralBadge("WV", "#00B977", "#071D16"),
+    body: officialLogo("weaviate"),
     source: "https://weaviate.io/",
-    provider: "README Stack neutral glyph",
+    provider: "Weaviate official site asset",
     aliases: ["weaviate"]
   },
   {
@@ -67,9 +72,9 @@ export const customTools = Object.freeze([
     name: "OpenAI",
     hex: "10A37F",
     viewBox: "0 0 24 24",
-    body: neutralBadge("AI", "#10A37F"),
+    body: officialLogo("openai", "#F2F1EC"),
     source: "https://openai.com/brand/",
-    provider: "README Stack neutral glyph",
+    provider: "OpenAI brand mark",
     aliases: ["openai", "open ai"]
   },
   {
@@ -77,9 +82,9 @@ export const customTools = Object.freeze([
     name: "dbt",
     hex: "FF694B",
     viewBox: "0 0 24 24",
-    body: neutralBadge("dbt", "#FF694B", "#25100A"),
+    body: officialLogo("dbt"),
     source: "https://www.getdbt.com/",
-    provider: "README Stack neutral glyph",
+    provider: "dbt Labs official site asset",
     aliases: ["dbt", "data build tool"]
   },
   {
@@ -87,9 +92,9 @@ export const customTools = Object.freeze([
     name: "Power BI",
     hex: "F2C811",
     viewBox: "0 0 24 24",
-    body: neutralBadge("PBI", "#F2C811", "#201A00"),
-    source: "https://www.microsoft.com/en-us/power-platform/products/power-bi",
-    provider: "README Stack neutral glyph",
+    body: officialLogo("powerbi"),
+    source: "https://github.com/microsoft/PowerBI-Icons",
+    provider: "Microsoft Power BI Icons",
     aliases: ["power bi", "powerbi", "microsoft power bi"]
   },
   {
@@ -97,9 +102,9 @@ export const customTools = Object.freeze([
     name: "Tableau",
     hex: "E97627",
     viewBox: "0 0 24 24",
-    body: neutralBadge("TAB", "#E97627", "#261006"),
+    body: officialLogo("tableau"),
     source: "https://www.tableau.com/",
-    provider: "README Stack neutral glyph",
+    provider: "Tableau official site asset",
     aliases: ["tableau"]
   },
   {
@@ -107,9 +112,9 @@ export const customTools = Object.freeze([
     name: "SvelteKit",
     hex: "FF3E00",
     viewBox: "0 0 24 24",
-    body: neutralBadge("SK", "#FF3E00", "#260900"),
+    body: officialLogo("sveltekit"),
     source: "https://svelte.dev/docs/kit/introduction",
-    provider: "README Stack neutral glyph",
+    provider: "Svelte official repository asset",
     aliases: ["sveltekit", "svelte kit"]
   },
   {
@@ -117,9 +122,9 @@ export const customTools = Object.freeze([
     name: "MkDocs",
     hex: "526CFE",
     viewBox: "0 0 24 24",
-    body: neutralBadge("MK", "#526CFE"),
+    body: officialLogo("mkdocs", "#F2F1EC"),
     source: "https://www.mkdocs.org/",
-    provider: "README Stack neutral glyph",
+    provider: "MkDocs official site asset",
     aliases: ["mkdocs", "mk docs"]
   },
   {
@@ -127,9 +132,9 @@ export const customTools = Object.freeze([
     name: "Codex",
     hex: "10A37F",
     viewBox: "0 0 24 24",
-    body: neutralBadge("CX", "#10A37F"),
+    body: officialLogo("codex"),
     source: "https://openai.com/codex/",
-    provider: "README Stack neutral glyph",
+    provider: "OpenAI Codex app icon",
     aliases: ["codex", "openai codex"]
   },
   {
@@ -147,9 +152,9 @@ export const customTools = Object.freeze([
     name: "Grok",
     hex: "111111",
     viewBox: "0 0 24 24",
-    body: neutralBadge("GR", "#111111"),
-    source: "https://x.ai/grok",
-    provider: "README Stack neutral glyph",
+    body: officialLogo("grok"),
+    source: "https://grok.com/images/android-chrome-192x192.png",
+    provider: "Grok official site asset",
     aliases: ["grok", "grok ai"]
   },
   {
@@ -157,9 +162,9 @@ export const customTools = Object.freeze([
     name: "Cohere",
     hex: "39594D",
     viewBox: "0 0 24 24",
-    body: neutralBadge("CO", "#39594D"),
+    body: officialLogo("cohere"),
     source: "https://cohere.com/",
-    provider: "README Stack neutral glyph",
+    provider: "Cohere official site asset",
     aliases: ["cohere", "cohere ai"]
   },
   {
@@ -167,9 +172,9 @@ export const customTools = Object.freeze([
     name: "Together AI",
     hex: "111111",
     viewBox: "0 0 24 24",
-    body: neutralBadge("TAI", "#111111"),
+    body: officialLogo("togetherai"),
     source: "https://www.together.ai/",
-    provider: "README Stack neutral glyph",
+    provider: "Together AI official site asset",
     aliases: ["together ai", "togetherai"]
   },
   {
@@ -177,9 +182,9 @@ export const customTools = Object.freeze([
     name: "Cerebras",
     hex: "F15A24",
     viewBox: "0 0 24 24",
-    body: neutralBadge("CB", "#F15A24", "#2A0D03"),
+    body: officialLogo("cerebras"),
     source: "https://www.cerebras.ai/",
-    provider: "README Stack neutral glyph",
+    provider: "Cerebras official site asset",
     aliases: ["cerebras", "cerebras ai"]
   },
   {
@@ -187,9 +192,9 @@ export const customTools = Object.freeze([
     name: "RunPod",
     hex: "6E44FF",
     viewBox: "0 0 24 24",
-    body: neutralBadge("RP", "#6E44FF"),
+    body: officialLogo("runpod"),
     source: "https://www.runpod.io/",
-    provider: "README Stack neutral glyph",
+    provider: "RunPod official site asset",
     aliases: ["runpod", "run pod"]
   },
   {
@@ -197,9 +202,9 @@ export const customTools = Object.freeze([
     name: "LlamaIndex",
     hex: "6F4BF2",
     viewBox: "0 0 24 24",
-    body: neutralBadge("LI", "#6F4BF2"),
+    body: officialLogo("llamaindex"),
     source: "https://www.llamaindex.ai/",
-    provider: "README Stack neutral glyph",
+    provider: "LlamaIndex official site asset",
     aliases: ["llamaindex", "llama index"]
   },
   {
@@ -207,9 +212,9 @@ export const customTools = Object.freeze([
     name: "AutoGen",
     hex: "5E5CE6",
     viewBox: "0 0 24 24",
-    body: neutralBadge("AG", "#5E5CE6"),
-    source: "https://microsoft.github.io/autogen/",
-    provider: "README Stack neutral glyph",
+    body: officialLogo("autogen"),
+    source: "https://github.com/microsoft/autogen",
+    provider: "Microsoft AutoGen repository asset",
     aliases: ["autogen", "auto gen", "microsoft autogen"]
   },
   {
@@ -217,9 +222,9 @@ export const customTools = Object.freeze([
     name: "Lovable",
     hex: "FF5A8A",
     viewBox: "0 0 24 24",
-    body: neutralBadge("LV", "#FF5A8A", "#2B0713"),
+    body: officialLogo("lovable"),
     source: "https://lovable.dev/",
-    provider: "README Stack neutral glyph",
+    provider: "Lovable official site asset",
     aliases: ["lovable", "lovable dev"]
   },
   {
@@ -227,9 +232,9 @@ export const customTools = Object.freeze([
     name: "Bolt",
     hex: "1389FD",
     viewBox: "0 0 24 24",
-    body: neutralBadge("BLT", "#1389FD", "#03182C"),
+    body: officialLogo("bolt"),
     source: "https://bolt.new/",
-    provider: "README Stack neutral glyph",
+    provider: "Bolt official site asset",
     aliases: ["bolt", "bolt new", "bolt.new"]
   },
   {
@@ -237,9 +242,9 @@ export const customTools = Object.freeze([
     name: "Cloudflare D1",
     hex: "F38020",
     viewBox: "0 0 24 24",
-    body: neutralBadge("D1", "#F38020", "#2B1202"),
-    source: "https://developers.cloudflare.com/d1/",
-    provider: "README Stack neutral glyph",
+    body: officialLogo("cloudflared1"),
+    source: "https://github.com/cloudflare/cloudflare-docs/tree/production/src/content/icons",
+    provider: "Cloudflare documentation asset",
     aliases: ["cloudflare d1", "d1", "cloudflared1"]
   },
   {
@@ -247,9 +252,9 @@ export const customTools = Object.freeze([
     name: "Cloudflare R2",
     hex: "F38020",
     viewBox: "0 0 24 24",
-    body: neutralBadge("R2", "#F38020", "#2B1202"),
-    source: "https://developers.cloudflare.com/r2/",
-    provider: "README Stack neutral glyph",
+    body: officialLogo("cloudflarer2"),
+    source: "https://github.com/cloudflare/cloudflare-docs/tree/production/src/content/icons",
+    provider: "Cloudflare documentation asset",
     aliases: ["cloudflare r2", "r2", "cloudflarer2"]
   }
 ]);

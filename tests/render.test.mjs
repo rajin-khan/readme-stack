@@ -36,6 +36,27 @@ test("renders the expanded reviewed catalog without remote content", () => {
   assert.doesNotMatch(result.svg, /<script|(?:href|src)=["']https?:\/\//i);
 });
 
+test("uses reviewed official artwork instead of placeholder badges", () => {
+  const ids = [
+    "autogen", "bolt", "cerebras", "cloudflared1", "cloudflarer2", "codex", "cohere", "dbt", "grok", "llamaindex",
+    "lovable", "mkdocs", "openai", "pinecone", "powerbi", "runpod", "sveltekit", "tableau", "togetherai", "weaviate"
+  ];
+  for (const id of ids) {
+    const tool = catalog.find((entry) => entry.id === id);
+    assert.ok(tool, `${id} is in the catalog`);
+    assert.notEqual(tool.provider, "README Stack neutral glyph");
+    assert.match(tool.body, /data:image\/(?:png|svg\+xml);base64,/);
+  }
+});
+
+test("renders Bun with its full-color character artwork", () => {
+  const result = renderStackSvg("https://stack.rajinkhan.com/v1/stack.svg?i=bun,nodedotjs&m=static");
+  assert.equal(result.status, 200);
+  assert.match(result.svg, /#fbf0df/);
+  assert.match(result.svg, /#febbd0/);
+  assert.doesNotMatch(result.svg, /<script|(?:href|src)=["']https?:\/\//i);
+});
+
 test("renders a 100-Tool Stack with a multi-row static fallback", () => {
   const ids = catalog.slice(0, 100).map((tool) => tool.id).join(",");
   const result = renderStackSvg(`https://stack.rajinkhan.com/v1/stack.svg?i=${ids}`);

@@ -8,6 +8,7 @@ const icons = Object.values(simpleIcons).filter((icon) => icon?.slug && icon?.pa
 const byExactTitle = new Map(icons.map((icon) => [icon.title.toLowerCase(), icon]));
 const byNormalized = new Map();
 const customByNormalized = new Map();
+const preferDevicon = new Set(["bun"]);
 
 for (const icon of icons) {
   for (const key of [normalize(icon.title), normalize(icon.slug)]) {
@@ -111,7 +112,10 @@ for (const [category, names] of Object.entries(toolSeeds)) {
       });
       continue;
     }
-    const icon = byExactTitle.get(requestedName.toLowerCase()) ?? byNormalized.get(normalize(requestedName));
+    const requestedKey = normalize(requestedName);
+    const icon = preferDevicon.has(requestedKey)
+      ? null
+      : byExactTitle.get(requestedName.toLowerCase()) ?? byNormalized.get(requestedKey);
     if (!icon) {
       const devicon = await resolveDevicon(requestedName);
       if (!devicon || used.has(devicon.id)) {
