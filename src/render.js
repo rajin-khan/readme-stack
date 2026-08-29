@@ -131,9 +131,18 @@ export function renderStackSvg(input) {
   const movingDisplay = config.motion === "static" ? "none" : "inline";
   const staticDisplay = config.motion === "static" ? "inline" : "none";
   const title = `Tech stack: ${config.tools.map((tool) => tool.name).join(", ")}`;
+  const licensedArtwork = config.tools
+    .filter((tool) => tool.rights.status === "licensed")
+    .map((tool) => `${tool.name}; source ${tool.source}; ${tool.rights.license}; ${tool.rights.notice}`);
+  const metadata = [
+    "README Stack generated SVG. Third-party names and marks identify their corresponding tools and do not imply endorsement.",
+    ...licensedArtwork,
+    "Full notices: https://github.com/rajin-khan/readme-stack/blob/main/THIRD_PARTY_NOTICES.md"
+  ].join(" | ");
 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${xml(title)}">
   <title>${xml(title)}</title>
+  <metadata>${xml(metadata)}</metadata>
   <defs>
     ${useDefinitions ? iconDefinitions(config.tools, config.treatment) : ""}
     <linearGradient id="edge-fade" x1="0" x2="1">

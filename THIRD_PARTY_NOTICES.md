@@ -34,6 +34,8 @@ README Stack uses original neutral glyphs when an official asset has no clear re
 
 Groq is a trademark of Groq LLC and/or its affiliates.
 
+README Stack also uses neutral glyphs for Anki, Debian, F-Droid, fish shell, freeCodeCamp, GIMP, GNU, GNU Emacs, GNU Privacy Guard, Inkscape, IPFS, Jenkins, KiCad, Let's Encrypt, Neovim, PHP, R, Robot Framework, Ruby, Rust, Sass, SVG, Tauri, Vue.js, Weblate, and Zig. Their catalog artwork carries noncommercial, no-derivatives, share-alike, GPL, or AGPL terms. The neutral replacements avoid passing uncertain artwork-license obligations into generated SVGs. The names remain solely to identify the corresponding tools.
+
 ## Corrections and removal
 
 If you own a mark in the catalog and want its source corrected, its artwork changed, or the entry removed, open a [catalog issue](https://github.com/rajin-khan/readme-stack/issues/new/choose). Maintainers give rights-owner requests priority.

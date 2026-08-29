@@ -137,6 +137,7 @@ for (const [category, names] of Object.entries(toolSeeds)) {
       path: icon.path,
       source: icon.source,
       provider: "Simple Icons 16.28.0",
+      iconLicense: icon.license ?? null,
       aliases: [...new Set([requestedName, icon.title, icon.slug].map(normalize).filter(Boolean))]
     });
   }
@@ -154,7 +155,8 @@ for (let index = 0; index < catalog.length; index += 1) {
   const rights = rightsFor(tool);
   if (!rights) throw new Error(`Catalog Tool ${tool.id} has no reviewed rights record.`);
   const { render, ...publicRights } = rights;
-  catalog[index] = { ...tool, ...(render ?? {}), rights: publicRights };
+  const { iconLicense, ...publicTool } = tool;
+  catalog[index] = { ...publicTool, ...(render ?? {}), rights: publicRights };
 }
 
 if (catalog.length < 280) {

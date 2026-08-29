@@ -58,6 +58,31 @@ test("uses neutral artwork when an official mark is not cleared for redistributi
   }
 });
 
+test("neutralizes catalog artwork with restrictive redistribution terms", () => {
+  for (const id of ["anki", "debian", "fdroid", "fishshell", "freecodecamp", "gimp", "gnu", "gnuemacs", "gnuprivacyguard", "inkscape", "ipfs", "jenkins", "kicad", "letsencrypt", "neovim", "php", "r", "robotframework", "ruby", "rust", "sass", "svg", "tauri", "vuedotjs", "weblate", "zig"]) {
+    const tool = catalog.find((entry) => entry.id === id);
+    assert.equal(tool.rights.status, "neutral");
+    assert.equal(tool.rights.license, "Original neutral glyph");
+    assert.match(tool.body, /<text/);
+  }
+});
+
+test("preserves explicit permissive catalog licenses", () => {
+  const copilot = catalog.find((entry) => entry.id === "githubcopilot");
+  assert.equal(copilot.rights.status, "licensed");
+  assert.match(copilot.rights.license, /icon license MIT/);
+  assert.equal(copilot.rights.notice, "https://spdx.org/licenses/MIT");
+});
+
+test("carries selected artwork attribution inside the SVG", () => {
+  const result = renderStackSvg("https://stack.rajinkhan.com/v1/stack.svg?i=githubcopilot,react");
+  assert.equal(result.status, 200);
+  assert.match(result.svg, /<metadata>/);
+  assert.match(result.svg, /GitHub Copilot; source/);
+  assert.match(result.svg, /icon license MIT/);
+  assert.match(result.svg, /THIRD_PARTY_NOTICES\.md/);
+});
+
 test("renders Bun with its full-color character artwork", () => {
   const result = renderStackSvg("https://stack.rajinkhan.com/v1/stack.svg?i=bun,nodedotjs&m=static");
   assert.equal(result.status, 200);

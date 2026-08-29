@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import * as simpleIcons from "simple-icons";
 import { catalog } from "../src/generated/catalog.js";
 
 const files = [
@@ -22,6 +23,7 @@ const files = [
 ];
 const failures = [];
 const sourceByFile = new Map();
+const simpleIconBySlug = new Map(Object.values(simpleIcons).filter((icon) => icon?.slug).map((icon) => [icon.slug, icon]));
 
 for (const file of files) {
   const value = await readFile(file, "utf8");
@@ -69,6 +71,10 @@ for (const tool of catalog) {
   if (!tool.path && !tool.body) failures.push(`Catalog entry ${tool.id} has no renderable mark.`);
   if (!tool.rights?.status || !tool.rights?.license || !tool.rights?.notice) failures.push(`Catalog entry ${tool.id} has no complete rights record.`);
   if (!new Set(["licensed", "brand-guidelines", "catalog-source", "neutral"]).has(tool.rights?.status)) failures.push(`Catalog entry ${tool.id} has an unknown rights status.`);
+  const sourceIcon = tool.provider === "Simple Icons 16.28.0" ? simpleIconBySlug.get(tool.id) : null;
+  if (sourceIcon?.license && tool.rights.status !== "neutral" && !tool.rights.license.includes(sourceIcon.license.type)) {
+    failures.push(`Catalog entry ${tool.id} does not preserve its ${sourceIcon.license.type} icon license.`);
+  }
 }
 
 for (const required of ["Third-party names and marks", "Groq is a trademark", "Simple Icons", "Devicon", "Power BI", "AutoGen", "Cloudflare D1", "Chroma"]) {

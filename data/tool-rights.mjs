@@ -19,6 +19,32 @@ export const providerRights = Object.freeze({
 });
 
 export const toolRights = Object.freeze({
+  anki: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/AGPL-3.0-only", render: neutralBadge("AK", "#80C2EE", "#111111") },
+  debian: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-SA-3.0", render: neutralBadge("DEB", "#A81D33") },
+  fdroid: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-SA-3.0", render: neutralBadge("FD", "#1976D2") },
+  fishshell: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/GPL-2.0-only", render: neutralBadge("FS", "#34C534", "#111111") },
+  freecodecamp: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-SA-4.0", render: neutralBadge("FCC", "#0A0A23") },
+  gimp: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-SA-4.0", render: neutralBadge("GM", "#5C5543") },
+  gnuemacs: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/GPL-2.0-or-later", render: neutralBadge("EM", "#7F5AB6") },
+  gnuprivacyguard: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/GPL-3.0-or-later", render: neutralBadge("GPG", "#0093DD") },
+  gnu: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-SA-2.0", render: neutralBadge("GNU", "#A42E2B") },
+  inkscape: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-SA-3.0", render: neutralBadge("IK", "#111111") },
+  ipfs: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-SA-3.0", render: neutralBadge("IPFS", "#65C2CB", "#111111") },
+  kicad: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/GPL-3.0-or-later", render: neutralBadge("KC", "#314CB0") },
+  jenkins: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-SA-3.0", render: neutralBadge("JK", "#D24939") },
+  letsencrypt: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-NC-4.0", render: neutralBadge("LE", "#003A70") },
+  neovim: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-SA-3.0", render: neutralBadge("NV", "#57A143", "#111111") },
+  php: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-SA-4.0", render: neutralBadge("PHP", "#777BB4") },
+  r: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-SA-4.0", render: neutralBadge("R", "#276DC3") },
+  robotframework: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-NC-SA-4.0", render: neutralBadge("RF", "#111111") },
+  ruby: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-SA-2.5", render: neutralBadge("RB", "#CC342D") },
+  rust: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-SA-4.0", render: neutralBadge("RS", "#111111") },
+  sass: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-NC-SA-3.0", render: neutralBadge("SASS", "#CC6699") },
+  svg: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-SA-4.0", render: neutralBadge("SVG", "#FFB13B", "#111111") },
+  tauri: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-NC-ND-4.0", render: neutralBadge("TR", "#24C8D8", "#111111") },
+  vuedotjs: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-NC-SA-4.0", render: neutralBadge("VUE", "#4FC08D", "#111111") },
+  weblate: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/GPL-3.0-only", render: neutralBadge("WL", "#2ECCAA", "#111111") },
+  zig: { status: "neutral", license: "Original neutral glyph", notice: "https://spdx.org/licenses/CC-BY-SA-4.0", render: neutralBadge("ZIG", "#F7A41D", "#111111") },
   groq: {
     status: "neutral",
     license: "Original neutral glyph",
@@ -82,10 +108,16 @@ export function rightsFor(tool) {
   const explicit = toolRights[tool.id];
   const strictNotice = reviewedStrictBrands[tool.id];
   const inherited = providerRights[tool.provider];
+  const catalogLicense = tool.iconLicense;
   const rights = explicit ?? (strictNotice ? {
     status: "brand-guidelines",
     license: `${tool.provider}; use subject to the owner's trademark policy`,
     notice: strictNotice
+  } : catalogLicense ? {
+    status: catalogLicense.type === "custom" ? "brand-guidelines" : "licensed",
+    license: `${tool.provider}; icon license ${catalogLicense.type}`,
+    notice: catalogLicense.url ?? `https://spdx.org/licenses/${catalogLicense.type}`,
+    attribution: `${tool.name} icon from ${tool.provider}, licensed under ${catalogLicense.type}.`
   } : inherited);
 
   return rights;

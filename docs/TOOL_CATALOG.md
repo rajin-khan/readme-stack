@@ -31,7 +31,7 @@ Every generated Tool must have:
 - License or use basis
 - Public notice or policy URL
 
-The build adds this record to every generated entry. `pnpm check` fails if any Tool has missing or unknown rights metadata. `catalog-source` means README Stack received the artwork through a pinned icon package. It does not mean the package granted trademark rights.
+The build adds this record to every generated entry. When Simple Icons supplies an icon-specific license, the generated record preserves its type and notice URL. `pnpm check` fails if any Tool has missing or unknown rights metadata. `catalog-source` means README Stack received the artwork through a pinned icon package that did not list an icon-specific license. It does not mean the package granted copyright or trademark rights.
 
 ## Adding a Tool
 
@@ -49,6 +49,8 @@ The build adds this record to every generated entry. `pnpm check` fails if any T
 Do not accept arbitrary SVG uploads, arbitrary remote logo URLs, scraped marks with unknown provenance, or a mark whose brand owner prohibits the intended use.
 
 Official source does not mean free to redistribute. If the source terms are unclear, use an original neutral glyph or leave the Tool out until the owner gives permission.
+
+Artwork under noncommercial, share-alike, GPL, or AGPL terms receives extra review. README Stack uses a neutral glyph when distributing the original artwork would impose unclear obligations on generated SVGs or their downstream users.
 
 ## Removal and correction
 
