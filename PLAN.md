@@ -32,7 +32,7 @@ Rajin handles only actions that require an external account, domain ownership, o
 - Confirm that `rajinkhan.com` can use Cloudflare DNS or provide another domain.
 - Create or select the public GitHub repository when asked.
 - Connect the repository to Cloudflare when local work is ready.
-- Decide later whether to move `rajinkhan.com` to Cloudflare DNS and add `stack.rajinkhan.com`.
+- Keep the Cloudflare DNS records for the Vercel portfolio and the README Stack custom domain healthy.
 - Approve any Cloudflare permission prompt or account-level setting.
 - Put the final embed into the GitHub profile README after the public URL works.
 - Approve the public product name after the naming check.
@@ -47,7 +47,7 @@ The Builder, renderer, tests, documentation, responsive checks, and local visual
 
 ### Cloudflare gate: complete
 
-The repository deploys through Cloudflare Workers Builds. The public address is `https://readme-stack.rajin-khan2001.workers.dev`.
+The repository deploys through Cloudflare Workers Builds. The public address is `https://stack.rajinkhan.com`.
 
 ### GitHub compatibility gate
 

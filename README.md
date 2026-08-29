@@ -6,7 +6,7 @@
 
 README Stack creates a scrolling SVG of the tools someone uses. It is made for GitHub profile READMEs.
 
-[Build a stack](https://readme-stack.rajin-khan2001.workers.dev)
+[Build a stack](https://stack.rajinkhan.com)
 
 ## What is included
 

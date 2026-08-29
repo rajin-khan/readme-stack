@@ -4,7 +4,7 @@
 
 README Stack is live at:
 
-<https://readme-stack.rajin-khan2001.workers.dev>
+<https://stack.rajinkhan.com>
 
 Next:
 
@@ -12,4 +12,4 @@ Next:
 2. Check the result in GitHub's light and dark themes.
 3. Keep the Worker on the Cloudflare Free plan.
 
-The `stack.rajinkhan.com` custom domain is postponed until `rajinkhan.com` moves to Cloudflare DNS.
+The custom domain and Cloudflare DNS setup are complete.
