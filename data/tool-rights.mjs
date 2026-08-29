@@ -1,6 +1,7 @@
 const neutralBadge = (label, background, foreground = "#F2F1EC") => ({
   hex: background.replace("#", ""),
   viewBox: "0 0 24 24",
+  path: null,
   body: `<rect x="2" y="2" width="20" height="20" rx="5" fill="${background}"/><text x="12" y="14.4" text-anchor="middle" fill="${foreground}" font-family="ui-sans-serif,system-ui,sans-serif" font-size="${label.length > 2 ? "5.5" : "7"}" font-weight="800">${label}</text>`
 });
 

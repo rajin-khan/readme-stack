@@ -53,6 +53,7 @@ test("uses neutral artwork when an official mark is not cleared for redistributi
     const tool = catalog.find((entry) => entry.id === id);
     assert.ok(tool, `${id} is in the catalog`);
     assert.equal(tool.rights.status, "neutral");
+    assert.ok(!tool.path, `${id} does not retain an official icon path`);
     assert.doesNotMatch(tool.body ?? "", /data:image\/(?:png|svg\+xml);base64,/);
   }
 });
